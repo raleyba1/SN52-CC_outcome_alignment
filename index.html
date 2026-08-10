@@ -108,13 +108,13 @@
   /* ---------- Drill-down goal table ---------- */
   .goal-table{ border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
   .goal-row{
-    display:grid; grid-template-columns:24px 1.6fr 2.2fr .9fr 1.2fr 1.1fr; gap:10px; align-items:center;
+    display:grid; grid-template-columns:24px 1.5fr 2fr .8fr 1fr 1fr 1fr; gap:10px; align-items:center;
     padding:11px 12px; border-bottom:1px solid var(--line); cursor:pointer; background:var(--paper);
   }
   .goal-row:hover{ background:#FBF9F4; }
   .goal-row.expanded{ background:#FBF7EF; }
   .goal-table-head{
-    display:grid; grid-template-columns:24px 1.6fr 2.2fr .9fr 1.2fr 1.1fr; gap:10px;
+    display:grid; grid-template-columns:24px 1.5fr 2fr .8fr 1fr 1fr 1fr; gap:10px;
     padding:9px 12px; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-dim);
     border-bottom:2px solid var(--navy); background:#FAF9F5;
   }
@@ -125,7 +125,7 @@
   .items-panel{ display:none; background:#FBF9F4; border-bottom:1px solid var(--line); }
   .items-panel.open{ display:block; }
   .item-row{
-    display:grid; grid-template-columns:24px 1.6fr 2.2fr .9fr 1.2fr 1.1fr; gap:10px; align-items:center;
+    display:grid; grid-template-columns:24px 1.5fr 2fr .8fr 1fr 1fr 1fr; gap:10px; align-items:center;
     padding:9px 12px 9px 12px; border-top:1px solid var(--line);
   }
   .item-row .item-text{ font-size:12.5px; color:var(--text); padding-left:6px; border-left:2px solid var(--line-strong); }
@@ -232,7 +232,7 @@
   <!-- GOAL & ACTION ITEM COVERAGE -->
   <div class="section" id="goals">
     <div class="section-head"><span class="section-num">03</span><h2 class="section-title">Coverage by goal — and by specific action item</h2></div>
-    <p class="section-note">All 32 goals from the plan. Counts here reflect each outcome's PRIMARY match only (its single main goal). Click a row to expand it and see its individual action items (82 total across the plan), each with its own priority. A goal can look well covered overall while several of its specific action items still have no grant outcome pinpointed to them.</p>
+    <p class="section-note">All 32 goals from the plan. Counts here reflect each outcome's PRIMARY match only (its single main goal). "Independent grants" counts distinct organizations, not outcomes — one grantee can contribute several outcomes toward the same goal or item, so this tells you how much of the coverage comes from a single funded program versus multiple. Click a row to expand it and see its individual action items (82 total across the plan), each with its own priority. A goal can look well covered overall while several of its specific action items still have no grant outcome pinpointed to them.</p>
     <div class="panel">
       <div class="filters">
         <select id="goalCatFilter"><option value="">All categories</option></select>
@@ -257,6 +257,7 @@
           <div>Category</div>
           <div>Priority</div>
           <div>Outcomes matched (primary)</div>
+          <div>Independent grants</div>
           <div>Coverage</div>
         </div>
         <div id="goalTableBody"></div>
@@ -317,6 +318,12 @@ function countCombined(cat, goal){
 }
 function countItem(itemText){
   return outcomes.filter(o => o.item===itemText).length;
+}
+function uniqueGrantsForGoal(cat, goal){
+  return new Set(outcomes.filter(o => o.cat===cat && o.goal===goal).map(o=>o.org)).size;
+}
+function uniqueGrantsForItem(itemText){
+  return new Set(outcomes.filter(o => o.item===itemText).map(o=>o.org)).size;
 }
 
 // ---------- KPI strip ----------
@@ -402,8 +409,10 @@ function renderGoalTable(){
   document.getElementById('goalTableBody').innerHTML = rows.map((r,idx)=>{
     const rid = 'g'+idx;
     const isOpen = expandedSet.has(r.Goal);
+    const goalGrants = uniqueGrantsForGoal(r.Category, r.Goal);
     const itemRows = r.items.map(it=>{
       const matched = countItem(it.Outcome);
+      const itemGrants = uniqueGrantsForItem(it.Outcome);
       return `
         <div class="item-row">
           <div></div>
@@ -411,6 +420,7 @@ function renderGoalTable(){
           <div></div>
           <div><span class="pill ${prioClass[it.Priority]||''}">${it.Priority}</span></div>
           <div>${matched}</div>
+          <div>${itemGrants}</div>
           <div class="${matched===0?'cov-gap':'cov-ok'}">${matched===0?'No specific match':'Matched'}</div>
         </div>`;
     }).join('');
@@ -421,6 +431,7 @@ function renderGoalTable(){
         <div class="g-cat-txt">${r.Category}</div>
         <div><span class="pill ${prioClass[r.topPriority]||''}">${r.topPriority}</span></div>
         <div>${r.n}</div>
+        <div>${goalGrants}</div>
         <div class="${covClass[r.cov]}">${covLabel[r.cov]}</div>
       </div>
       <div class="items-panel ${isOpen?'open':''}" id="items-${rid}">${itemRows}</div>
