@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rockwell Fund SN52 grant and Complete Community Action Plan Outcomes Alignment</title>
+<title>SN52 Grant Outcomes Alignment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -18,6 +18,8 @@
     --gold-bg:#F7EEDF;
     --teal:#2E7D75;
     --teal-bg:#E4EFED;
+    --plum:#5E4B8B;
+    --plum-bg:#ECE8F3;
     --red:#B3261E;
     --red-bg:#FBEAE8;
     --text:#1D2530;
@@ -175,6 +177,97 @@
   ::-webkit-scrollbar{ width:9px; height:9px; }
   ::-webkit-scrollbar-thumb{ background:var(--line-strong); border-radius:5px; }
   a{ color: var(--teal); }
+
+  /* ---------- Two-plan layout ---------- */
+  .header, .subnav{ margin-left:0; margin-right:0; }
+  select{ max-width:100%; }
+  .h-groups{ display:flex; flex-wrap:wrap; gap:8px 34px; margin-top:22px; border-top:1px solid rgba(255,255,255,.18); padding-top:12px; }
+  .h-group-lbl{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#DDE3E6; display:flex; align-items:center; gap:7px; }
+  .h-group-lbl .sw{ width:10px; height:10px; border-radius:2px; display:inline-block; }
+  .sw.cc{ background:#E2B670; } .sw.kg{ background:#B9A8E0; } .sw.both{ background:#C7D1D6; }
+  .h-group .h-stats{ margin-top:2px; border-top:none; }
+  .h-group .h-stat{ flex:0 1 auto; padding-right:26px; }
+
+  .nav-grp{ font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:12px 4px 11px 14px; white-space:nowrap; font-weight:600; }
+  .nav-grp.cc{ color:var(--gold); } .nav-grp.kg{ color:var(--plum); } .nav-grp.both{ color:var(--navy); }
+
+  .legend-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .chip{ display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; padding:4px 11px; border-radius:12px; }
+  .chip .sw{ width:9px; height:9px; border-radius:2px; }
+  .chip.cc{ background:var(--gold-bg); color:var(--gold); } .chip.cc .sw{ background:var(--gold); }
+  .chip.kg{ background:var(--plum-bg); color:var(--plum); } .chip.kg .sw{ background:var(--plum); }
+
+  .part-banner{ margin-top:56px; background:var(--paper); border:1px solid var(--line); border-left:6px solid var(--gold); border-radius:var(--radius); padding:16px 20px; box-shadow:var(--shadow); }
+  .part-banner.kg{ border-left-color:var(--plum); } .part-banner.both{ border-left-color:var(--navy); }
+  .p-tag{ font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+  .part-banner.kg .p-tag{ color:var(--plum); } .part-banner.both .p-tag{ color:var(--navy); }
+  .p-title{ font-weight:700; font-size:22px; color:var(--navy); margin:3px 0 4px; }
+  .p-desc{ font-size:13.5px; color:var(--text-dim); margin:0; line-height:1.55; max-width:860px; }
+  .part-banner + .section{ margin-top:26px; }
+
+  .section.kg .section-num{ color:var(--plum); }
+  .section.kg .kpi .num{ color:var(--plum); }
+  .toggle.kg{ border-color:var(--plum); } .toggle.kg button.active{ background:var(--plum); }
+  .bar-fill.kg{ background:var(--plum); }
+  .section.kg .chev{ color:var(--plum); }
+  .section.kg .goal-table-head{ border-bottom-color:var(--plum); }
+  .section.kg .gap-card{ border-left-color:var(--red); }
+  .section.kg .goal-row, .section.kg .goal-table-head, .section.kg .item-row{ grid-template-columns:24px 2.8fr 1.3fr .8fr .8fr .8fr .9fr; }
+  .ka-id{ font-family:var(--font-mono); font-size:11px; color:var(--plum); margin-right:5px; }
+  .item-row.broad .item-text{ font-style:italic; color:var(--text-dim); }
+  .toggle.kg{ margin-bottom:18px; }
+  .kg-sub{ display:block; font-size:11.5px; font-weight:400; color:var(--text-dim); margin-top:2px; }
+  .pa-num{ font-family:var(--font-mono); font-size:11px; color:var(--plum); margin-right:4px; }
+  .tf{ display:block; font-size:11px; color:var(--text-dim); margin-top:3px; }
+  .match-row{ padding:9px 12px 9px 46px; border-top:1px solid var(--line); font-size:12.5px; line-height:1.5; }
+  .match-row b{ color:var(--navy); }
+  .match-row .m-area{ color:var(--text-dim); }
+  .match-empty{ padding:10px 12px 10px 46px; font-size:12.5px; color:var(--text-dim); font-style:italic; border-top:1px solid var(--line); }
+
+  .tag.kg{ background:var(--plum-bg); color:var(--plum); }
+  .tag.kgact{ background:var(--plum); color:#fff; }
+  .o-plan{ margin-top:10px; padding-left:11px; border-left:3px solid var(--gold); }
+  .o-plan.kg{ border-left-color:var(--plum); }
+  .o-plan-h{ font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; font-weight:600; }
+  .o-plan.kg .o-plan-h{ color:var(--plum); }
+  .o-plan .o-rationale{ margin-top:6px; }
+
+  .cmp-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:820px){ .cmp-grid{ grid-template-columns:1fr; } }
+  .cmp-table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .cmp-table th{ text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-dim); padding:9px 10px; border-bottom:2px solid var(--navy); background:#FAF9F5; font-weight:600; }
+  .cmp-table th.cc{ color:var(--gold); } .cmp-table th.kg{ color:var(--plum); }
+  .cmp-table td{ padding:10px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.45; }
+  .cmp-table td:first-child{ color:var(--text-dim); width:34%; }
+  .cmp-table .big{ font-weight:700; font-size:17px; color:var(--navy); }
+  .cmp-table .sub{ display:block; font-size:11.5px; color:var(--text-dim); }
+  .cmp-foot{ font-size:12px; color:var(--text-dim); margin-top:10px; line-height:1.5; }
+  .sub-h{ font-weight:700; font-size:15px; color:var(--navy); margin:26px 0 4px; }
+  .sub-note{ font-size:13px; color:var(--text-dim); margin:0 0 12px; line-height:1.5; max-width:820px; }
+
+  .xwalk-wrap{ overflow-x:auto; }
+  .xwalk{ border-collapse:separate; border-spacing:2px; font-size:12px; min-width:760px; }
+  .xwalk th{ font-weight:600; color:var(--text-dim); font-size:11px; line-height:1.3; padding:6px; }
+  .xwalk thead th{ color:var(--plum); vertical-align:bottom; text-align:center; width:96px; }
+  .xwalk thead th.corner{ text-align:left; color:var(--text-dim); width:auto; }
+  .xwalk tbody th{ text-align:left; color:var(--gold); white-space:nowrap; padding-right:12px; }
+  .xwalk td{ text-align:center; height:34px; border-radius:4px; font-family:var(--font-mono); font-size:12.5px; background:#F3F2EE; color:var(--text-dim); cursor:default; }
+  .xwalk td.tot, .xwalk th.tot{ background:none; font-weight:700; color:var(--navy); }
+
+  .diff-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+  .diff-card{ border:1px solid var(--line); border-left:3px solid var(--navy); padding:14px 16px; background:var(--paper); border-radius:var(--radius); }
+  .diff-card .flag{ font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--navy); margin-bottom:6px; }
+  .diff-card .d-title{ font-weight:700; font-size:15px; color:var(--navy); margin-bottom:6px; }
+  .diff-card p{ font-size:12.5px; line-height:1.55; margin:0 0 6px; }
+  .diff-card .arrow{ font-size:12.5px; line-height:1.5; margin:4px 0; }
+  .diff-card .arrow .from{ color:var(--gold); font-weight:600; } .diff-card .arrow .to{ color:var(--plum); font-weight:600; }
+  .moved-list{ border:1px solid var(--line); border-radius:var(--radius); }
+  .moved-row{ padding:10px 14px; border-bottom:1px solid var(--line); font-size:12.5px; line-height:1.5; background:var(--paper); }
+  .moved-row:last-child{ border-bottom:none; }
+  .moved-row .arrow{ margin-top:3px; }
+  .moved-row .from{ color:var(--gold); font-weight:600; } .moved-row .to{ color:var(--plum); font-weight:600; }
+  .mob-lbl{ display:none; }
+  @media (max-width:820px){ .section.kg .goal-row, .section.kg .item-row{ grid-template-columns:20px 1fr; } .goal-row > div:nth-child(n+3), .item-row > div:nth-child(n+3){ grid-column:2; } .mob-lbl{ display:inline; color:var(--text-dim); font-size:12px; } .section.kg .tf{ display:inline; margin-left:6px; } .match-row, .match-empty{ padding-left:20px; } }
 </style>
 </head>
 <body>
@@ -182,24 +275,51 @@
   <div class="header">
     <div class="header-inner">
       <div class="eyebrow">SN52 · Kashmere Gardens</div>
-      <h1 class="h-title">Rockwell Fund SN52 grant and Complete Community Action Plan Outcomes Alignment</h1>
-      <p class="h-sub">A side-by-side look at what SN52's grant-funded programs are committed to deliver, and what residents prioritized in the Complete Community Plan, showing where the two line up, and where they don't, down to the plan's specific action items.</p>
-      <div class="h-stats">
-        <div class="h-stat"><div class="n">200</div><div class="l">Grant outcomes</div></div>
-        <div class="h-stat"><div class="n">29</div><div class="l">Grantees</div></div>
-        <div class="h-stat"><div class="n">10</div><div class="l">Complete Community Action Plan categories</div></div>
-        <div class="h-stat"><div class="n">32</div><div class="l">Complete Community Action Plan goals</div></div>
-        <div class="h-stat"><div class="n">82</div><div class="l">Complete Community Action Plan action items</div></div>
+      <h1 class="h-title">Rockwell Fund SN52 grant, Complete Community Action Plan and 2026 Kashmere Gardens Priorities Outcomes Alignment</h1>
+      <p class="h-sub" style="max-width:820px;">A side-by-side look at what SN52's grant-funded programs are committed to deliver, and what residents prioritized in the Complete Community Action Plan and the 2026 Kashmere Gardens Priorities, showing where they line up, and where they don't, down to each plan's specific action items and key actions.</p>
+      <div class="h-groups">
+        <div class="h-group">
+          <div class="h-group-lbl"><span class="sw both"></span>Grant portfolio</div>
+          <div class="h-stats">
+            <div class="h-stat"><div class="n">200</div><div class="l">Grant outcomes</div></div>
+            <div class="h-stat"><div class="n">29</div><div class="l">Grantees</div></div>
+          </div>
+        </div>
+        <div class="h-group">
+          <div class="h-group-lbl"><span class="sw cc"></span>Complete Community Action Plan</div>
+          <div class="h-stats">
+            <div class="h-stat"><div class="n">10</div><div class="l">Categories</div></div>
+            <div class="h-stat"><div class="n">32</div><div class="l">Goals</div></div>
+            <div class="h-stat"><div class="n">82</div><div class="l">Action items</div></div>
+          </div>
+        </div>
+        <div class="h-group">
+          <div class="h-group-lbl"><span class="sw kg"></span>2026 Kashmere Gardens Priorities</div>
+          <div class="h-stats">
+            <div class="h-stat"><div class="n">6</div><div class="l">Focus areas</div></div>
+            <div class="h-stat"><div class="n">22</div><div class="l">Outcomes / goals</div></div>
+            <div class="h-stat"><div class="n">32</div><div class="l">Priority actions</div></div>
+            <div class="h-stat"><div class="n">90</div><div class="l">Key actions</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="subnav">
     <div class="subnav-inner">
+      <span class="nav-grp cc">CC Plan</span>
       <a href="#glance">At a glance</a>
       <a href="#category">Category coverage</a>
       <a href="#goals">Goal &amp; action-item coverage</a>
       <a href="#gaps">Gaps</a>
+      <span class="nav-grp kg">2026 Priorities</span>
+      <a href="#kg-glance">At a glance</a>
+      <a href="#kg-focus">Focus-area coverage</a>
+      <a href="#kg-actions">Priority-action &amp; key-action coverage</a>
+      <a href="#kg-gaps">Gaps</a>
+      <span class="nav-grp both">Both</span>
+      <a href="#compare">Compare plans</a>
       <a href="#explorer">Browse outcomes</a>
     </div>
   </div>
@@ -207,12 +327,24 @@
 <div class="sheet">
 
   <div class="intro">
-    Every grant outcome below has been matched to the Complete Community goal it most directly advances, and to the one specific action item within that goal it most directly serves. So you can see which parts of the resident-driven plan current grant funding is, and isn't, reaching, at two levels of detail.
+    Every grant outcome below has been matched against two resident-driven plans for Kashmere Gardens. Under the <b>Complete Community Action Plan</b>, each outcome is matched to the goal it most directly advances and to the one specific action item within that goal it most directly serves. Under the <b>2026 Kashmere Gardens Priorities</b>, each outcome is matched to the priority action it most directly advances and, where one fits, to the specific key action within it. So you can see which parts of each plan current grant funding is, and isn't, reaching.
+    <br><br>
+    Part A covers the Complete Community Action Plan, Part B covers the 2026 Priorities, and Part C compares the two. Colors are consistent throughout:
+    <div class="legend-chips">
+      <span class="chip cc"><span class="sw"></span>Complete Community Action Plan</span>
+      <span class="chip kg"><span class="sw"></span>2026 Kashmere Gardens Priorities</span>
+    </div>
+  </div>
+
+  <div class="part-banner">
+    <div class="p-tag">Part A</div>
+    <div class="p-title">Complete Community Action Plan alignment</div>
+    <p class="p-desc">10 categories, 32 goals and 82 specific action items. Each grant outcome is matched down to the action-item level.</p>
   </div>
 
   <!-- KPI STRIP -->
   <div class="section" id="glance">
-    <div class="section-head"><span class="section-num">01</span><h2 class="section-title">At a glance</h2></div>
+    <div class="section-head"><span class="section-num">01</span><h2 class="section-title">At a glance: Complete Community Plan</h2></div>
     <div class="kpi-grid" id="kpiGrid"></div>
   </div>
 
@@ -267,7 +399,7 @@
 
   <!-- GAPS -->
   <div class="section" id="gaps">
-    <div class="section-head"><span class="section-num">04</span><h2 class="section-title">Where the plan isn't currently being addressed</h2></div>
+    <div class="section-head"><span class="section-num">04</span><h2 class="section-title">Where the Complete Community Plan isn't currently being addressed</h2></div>
     <p class="section-note">Based on each outcome's primary match. Toggle between two views: goals with no grant outcome matched to them at all, or the more granular list of specific action items that remain unaddressed even within goals that DO have a grant outcome matched. Goal-level gap cards also show whether the goal shows up as a secondary or tertiary match elsewhere, even though it has no outcome as its main focus.</p>
     <div class="panel">
       <div class="toggle" id="gapToggle">
@@ -278,22 +410,122 @@
     </div>
   </div>
 
+  <div class="part-banner kg">
+    <div class="p-tag">Part B</div>
+    <div class="p-title">2026 Kashmere Gardens Priorities alignment</div>
+    <p class="p-desc">6 focus areas, 22 outcomes/goals, 32 priority actions (each with its own High / Medium / Low priority) and 90 key actions. Each grant outcome is matched to a priority action and, where one fits, to a specific key action.</p>
+  </div>
+
+  <!-- 2026 KPI STRIP -->
+  <div class="section kg" id="kg-glance">
+    <div class="section-head"><span class="section-num">05</span><h2 class="section-title">At a glance: 2026 Priorities</h2></div>
+    <div class="kpi-grid" id="kgKpiGrid"></div>
+  </div>
+
+  <!-- 2026 FOCUS AREA COVERAGE -->
+  <div class="section kg" id="kg-focus">
+    <div class="section-head"><span class="section-num">06</span><h2 class="section-title">Grant outcomes by 2026 focus area</h2></div>
+    <p class="section-note">How many of the 200 grant outcomes touch each of the 2026 plan's 6 focus areas. "Primary" counts each outcome once, toward its main priority action. "Primary + secondary" also counts outcomes that meaningfully touch a second focus area.</p>
+    <div class="panel">
+      <div class="toggle kg" id="kgCovToggle">
+        <button data-mode="primary" class="active">PRIMARY MATCH ONLY</button>
+        <button data-mode="combined">PRIMARY + SECONDARY MATCHES</button>
+      </div>
+      <div id="kgBarChart"></div>
+    </div>
+  </div>
+
+  <!-- 2026 PRIORITY ACTION COVERAGE -->
+  <div class="section kg" id="kg-actions">
+    <div class="section-head"><span class="section-num">07</span><h2 class="section-title">Coverage by 2026 priority action, and by key action</h2></div>
+    <p class="section-note">All 32 priority actions from the 2026 plan, each with its own priority level and timeframe. Counts reflect each outcome's PRIMARY match only. "Independent grants" counts distinct organizations, not outcomes. Click a row to expand it and see its key actions (90 total across the plan), which share their priority action's priority level. Some outcomes clearly advance a priority action without fitting any one of its key actions; they are counted on a separate line. A priority action can look well covered overall while several of its key actions still have no grant outcome pinpointed to them.</p>
+    <div class="panel">
+      <div class="filters">
+        <select id="kgFocusFilter"><option value="">All focus areas</option></select>
+        <select id="kgPrioFilter">
+          <option value="">All priority levels</option>
+          <option value="High">High priority</option>
+          <option value="Medium">Medium priority</option>
+          <option value="Low">Low priority</option>
+        </select>
+        <select id="kgCovFilter">
+          <option value="">All coverage levels</option>
+          <option value="gap">No grant activity at all</option>
+          <option value="thin">Thinly covered (1–2 outcomes)</option>
+          <option value="covered">Well covered (3+ outcomes)</option>
+        </select>
+        <button id="kgExpandAll" style="font-family:var(--font-body); font-size:12.5px; padding:8px 12px; border:1px solid var(--line-strong); background:var(--paper); border-radius:4px; cursor:pointer;">Expand all</button>
+      </div>
+      <div class="goal-table">
+        <div class="goal-table-head">
+          <div></div>
+          <div>2026 Priority Action</div>
+          <div>Focus area</div>
+          <div>Priority</div>
+          <div>Outcomes matched (primary)</div>
+          <div>Independent grants</div>
+          <div>Coverage</div>
+        </div>
+        <div id="kgTableBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2026 GAPS -->
+  <div class="section kg" id="kg-gaps">
+    <div class="section-head"><span class="section-num">08</span><h2 class="section-title">Where the 2026 Priorities aren't currently being addressed</h2></div>
+    <p class="section-note">Based on each outcome's primary match. Toggle between two views: priority actions with no grant outcome matched to them at all, or the more granular list of key actions that remain unaddressed even within priority actions that DO have a grant outcome matched. Priority-action gap cards also show whether the action's parent outcome/goal is reached in other ways.</p>
+    <div class="panel">
+      <div class="toggle kg" id="kgGapToggle"><button data-mode="action" class="active">PRIORITY ACTIONS WITH NO ACTIVITY</button><button data-mode="key">UNADDRESSED KEY ACTIONS</button></div>
+      <div class="gap-grid" id="kgGapGrid"></div>
+    </div>
+  </div>
+
+  <div class="part-banner both">
+    <div class="p-tag">Part C</div>
+    <div class="p-title">How the two alignments compare</div>
+    <p class="p-desc">The same 200 grant outcomes read against both plans: where they line up the same way, and where the two plans differ.</p>
+  </div>
+
+  <!-- COMPARISON -->
+  <div class="section" id="compare">
+    <div class="section-head"><span class="section-num">09</span><h2 class="section-title">Complete Community Plan vs. 2026 Priorities</h2></div>
+    <p class="section-note">Side-by-side summary, a crosswalk of where outcomes land under each plan, and the main differences in how grant work lines up.</p>
+    <div class="panel">
+      <table class="cmp-table" id="cmpTable"></table>
+      <div class="cmp-foot">The two plans are organized differently. The Complete Community Plan nests 82 action items under its goals. The 2026 plan adds a priority-action layer between its goals and its 90 key actions. Outcomes that advance a 2026 priority action broadly, without fitting one key action, count toward the priority action but not toward any key action.</div>
+
+      <div class="sub-h">Crosswalk: where each outcome's primary match lands</div>
+      <p class="sub-note">Each cell counts grant outcomes whose primary Complete Community category is the row and whose primary 2026 focus area is the column. Darker cells hold more outcomes. Hover a cell for the count.</p>
+      <div class="xwalk-wrap"><table class="xwalk" id="xwalk"></table></div>
+
+      <div class="sub-h">Key differences</div>
+      <p class="sub-note">The structural differences between the two plans that most affect how grant outcomes line up.</p>
+      <div class="diff-grid" id="diffGrid"></div>
+
+      <div class="sub-h">Outcomes matched under only one plan</div>
+      <p class="sub-note" id="movedNote"></p>
+      <div class="moved-list" id="movedList"></div>
+    </div>
+  </div>
+
   <!-- OUTCOME EXPLORER -->
   <div class="section" id="explorer">
-    <div class="section-head"><span class="section-num">05</span><h2 class="section-title">Browse individual grant outcomes</h2></div>
-    <p class="section-note">Search or filter all 200 grant outcomes and see exactly which Complete Community goal and specific action item each one was matched to, and the reasoning behind the match.</p>
+    <div class="section-head"><span class="section-num">10</span><h2 class="section-title">Browse individual grant outcomes</h2></div>
+    <p class="section-note">Search or filter all 200 grant outcomes and see exactly which Complete Community goal and specific action item each one was matched to, and which 2026 priority action and key action it was matched to, with the reasoning behind each match.</p>
     <div class="panel">
       <div class="outcome-controls">
-        <input type="text" id="oSearch" placeholder="Search by organization, outcome text, or goal…">
+        <input type="text" id="oSearch" placeholder="Search by organization, outcome text, goal, or action…">
         <select id="oOrgFilter"><option value="">All organizations</option></select>
         <select id="oCatFilter"><option value="">All CC categories</option></select>
+        <select id="oKgFilter"><option value="">All 2026 focus areas</option></select>
       </div>
       <div class="count-note" id="oCount"></div>
       <div class="outcome-list" id="outcomeList"></div>
     </div>
   </div>
 
-  <div class="footer-note">SN52 Grant Analysis · Complete Community Plan alignment</div>
+  <div class="footer-note">SN52 Grant Analysis · Complete Community Plan and 2026 Kashmere Gardens Priorities alignment</div>
 
 </div>
 
@@ -505,6 +737,274 @@ document.querySelector('#gapToggle button[data-mode="goal"]').textContent = `GOA
 document.querySelector('#gapToggle button[data-mode="item"]').textContent = `UNADDRESSED ACTION ITEMS (${itemGaps})`;
 renderGaps();
 
+const KG = {"actions": [{"num": 1, "fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "act": "Ensure families have their basic needs met", "pri": "High", "tf": "Short Term", "keys": [{"id": "1a", "text": "Survey families to understand priority basic needs"}, {"id": "1b", "text": "Identify barriers to families enrolling in assistance programs, including SNAP, WIC, Medicare, Medicaid, and the Child Health Insurance Program"}, {"id": "1c", "text": "Develop communication materials and an outreach strategy to increase enrollment for eligible families"}, {"id": "1d", "text": "Develop communication materials to share resources provided by non-governmental agencies, such as 211, the Houston Food Bank, area churches, and others"}]}, {"num": 2, "fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "act": "Support area students and parents through comprehensive services and programs, including basic needs, personal hygiene, mental and physical health resources", "pri": "High", "tf": "Short Term", "keys": [{"id": "2a", "text": "Strengthen partnerships to make sure area schools have enough resources for students, including food, clothes, and other needs, and that parents are aware of resources available"}, {"id": "2b", "text": "Raise funds and strengthen partnerships to provide college scholarships for area students"}, {"id": "2c", "text": "Develop a coalition of businesses, churches, non-profit organizations, and others to develop and sustain a tutoring and mentoring program for youth"}, {"id": "2d", "text": "Expand after school and summer enrichment programs, including courses in the arts, technology, music, business, cooking, tutoring, college prep, financial literacy, and other life skills"}]}, {"num": 3, "fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "act": "Ensure families have tools for financial security, including access to affordable childcare", "pri": "High", "tf": "Short Term", "keys": [{"id": "3a", "text": "Inventory available childcare slots in the community, including subsidized slots, and share this information"}, {"id": "3b", "text": "Identify partners to provide budgeting and financial literacy courses for youth, adults, and seniors"}, {"id": "3c", "text": "Identify a location to provide services"}, {"id": "3d", "text": "Develop an outreach and communication strategy"}]}, {"num": 4, "fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "act": "Develop a comprehensive Job Training / Workforce Development Center to connect community members and youth to workforce development programs, social services, and employment opportunities", "pri": "High", "tf": "Long Term", "keys": [{"id": "4a", "text": "Establish a collaborative with city, county, faith-based and non-profit organizations, and healthcare agencies to plan for a center"}, {"id": "4b", "text": "Identify a location, close to public transportation"}, {"id": "4c", "text": "Provide full services to clients, including housing assistance, mental healthcare, re-entry services, adult education (High School Equivalency, language classes, etc.), and childcare"}]}, {"num": 5, "fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Small businesses are growing and successful", "act": "Provide support, resources, and training to support the success of area small businesses and entrepreneurs", "pri": "Medium", "tf": "Medium Term", "keys": [{"id": "5a", "text": "Survey area small businesses to identify key needs"}, {"id": "5b", "text": "Develop a resource and training program to meet these needs"}, {"id": "5c", "text": "Develop an inventory of contract needs for the LBJ expansion and make available to area businesses"}, {"id": "5d", "text": "Create a local business network"}, {"id": "5e", "text": "Develop and implement a facade improvement grant program"}]}, {"num": 6, "fa": "Basic Needs, Education, and Economic Opportunity", "goal": "New businesses are attracted to our community", "act": "Develop advocacy strategies and tools to attract new businesses to the community", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "6a", "text": "Establish a business incubator, accelerator, or co-op space to support new small businesses"}, {"id": "6b", "text": "Advocate for a new grocery store"}, {"id": "6c", "text": "Advocate for the development of a bank or credit union in the neighborhood"}]}, {"num": 7, "fa": "Housing", "goal": "Homes are safe and livable", "act": "Provide comprehensive home repair for seniors, those impacted by disasters, and other vulnerable households", "pri": "High", "tf": "Short Term", "keys": [{"id": "7a", "text": "Inventory or survey the home repair needs of area homeowners, including HVAC systems, roofs, weatherization and storm damage"}, {"id": "7b", "text": "Create a directory of existing home repair programs through public and non-profit agencies"}, {"id": "7c", "text": "Develop an informational guide for homeowners to understand and navigate the process of home repair and assistance"}, {"id": "7d", "text": "Assist homeowners through case management in preparing applications for home repair"}, {"id": "7e", "text": "Advocate for better delivery of home repair services, including providing comprehensive services from roof to floor, increasing the number of homes that are repaired, and ensuring high quality workmanship"}]}, {"num": 8, "fa": "Housing", "goal": "Homeowners are secure", "act": "Expand resources, services, and workshops to protect existing homeowners, including in resolving any title or inheritance problems, foreclosure counseling, and applying for tax exemptions", "pri": "High", "tf": "Short Term", "keys": [{"id": "8a", "text": "Identify homeowners in need of assistance"}, {"id": "8b", "text": "Develop a directory of services being provided, for example clearing titles by Heir Properties and Tangled Titles, and distribute to area residents"}, {"id": "8c", "text": "Expand rental assistance and housing support for vulnerable populations"}]}, {"num": 9, "fa": "Housing", "goal": "Homeownership is increasing", "act": "Increase access to information and resources to support first time homebuyers", "pri": "Medium", "tf": "Short Term", "keys": [{"id": "9a", "text": "Expand locally available homebuyer education programs to prepare families to be homeowners"}, {"id": "9b", "text": "Create informational materials and an outreach plan to share available resources for first time homebuyers, including downpayment assistance"}]}, {"num": 10, "fa": "Housing", "goal": "Quality housing options are available to all", "act": "Increase high quality rental and ownership housing options for all income levels", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "10a", "text": "Plan for the development of new housing, particularly housing that is affordable to current residents of Kashmere Gardens and Trinity Houston Gardens"}, {"id": "10b", "text": "Develop supportive housing for those with vulnerabilities, including seniors"}, {"id": "10c", "text": "Advocate for and develop new multi-family housing"}, {"id": "10d", "text": "Partner with non-profit organizations such as the Houston Land Bank and Habitat for Humanity to develop affordable housing, similar to the Robins Landing project"}, {"id": "10e", "text": "Work with renters and landlords to make sure area rental housing is safe, well-maintained, and supportive of tenants; create a community oversight committee to make sure rental housing is safe"}]}, {"num": 11, "fa": "Health and Environment", "goal": "Healthy food", "act": "Grow the Northeast Houston Farmers Market", "pri": "High", "tf": "Short Term", "keys": [{"id": "11a", "text": "Develop promotional materials and an outreach plan to grow participation in the Northeast Houston Farmers Market"}, {"id": "11b", "text": "Explore the development of pocket or satellite farmers markets"}, {"id": "11c", "text": "Bring in academic partners to analyze and propose strategies for growth, including additional vendors and products"}, {"id": "11d", "text": "Identify strategies for the farmers market to support local entrepreneurs and vendors"}]}, {"num": 12, "fa": "Health and Environment", "goal": "Healthy food", "act": "Advocate for improved access to quality grocery stores", "pri": "High", "tf": "Long Term", "keys": [{"id": "12a", "text": "Advocate for improved access to quality grocery stores through the development of a co-operative grocery store owned by the community, improved support for local stores such as Sing-On, or a major grocery store chain offering healthy food at affordable prices"}]}, {"num": 13, "fa": "Health and Environment", "goal": "Healthy food", "act": "Provide cooking, nutrition, and healthy eating classes and programs", "pri": "High", "tf": "Short Term", "keys": [{"id": "13a", "text": "Create partnerships with area schools, gardens, farms, LBJ Kitchen, Barbara Jordan Career Center, and other agencies to provide cooking, nutrition, and healthy eating classes at established community facilities, including the Northeast Farmers Market"}]}, {"num": 14, "fa": "Health and Environment", "goal": "Healthy food", "act": "Expand access to healthy food and community gardens", "pri": "Medium", "tf": "Short Term", "keys": [{"id": "14a", "text": "Increase access and information about food assistance programs, including SNAP and the Women Infants and Children (WIC) program, and LBJ Hospital Food \"Farmacies\"; work in partnership with LBJ Hospital to help people make the best use of SNAP and other assistance programs"}, {"id": "14b", "text": "Promote and expand area community gardens to increase volunteers and provide more food to community members"}]}, {"num": 15, "fa": "Health and Environment", "goal": "Healthy environment", "act": "Protect the community from past and future environmental hazards", "pri": "High", "tf": "Long Term", "keys": [{"id": "15a", "text": "Advocate for action to address the cancer cluster and soil contamination in the community, including near Liberty Rd."}, {"id": "15b", "text": "Advocate for the monitoring of air, soil, and water quality adjacent to area industries, such as concrete batch plants and rail yards"}, {"id": "15c", "text": "Prevent additional toxic industries from locating in the community, including truck lots and manufacturing; explore policies to protect residential communities from these land uses; prevent the construction of solid metal fencing around sites"}]}, {"num": 16, "fa": "Health and Environment", "goal": "Healthy environment", "act": "Advocate for green infrastructure and tree planting programs", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "16a", "text": "Coordinate tree planting efforts to provide buffers to area highways and industries, including at the new stormwater detention site; collaborate with Trees for Houston"}, {"id": "16b", "text": "Promote improved water quality and hydrology through green infrastructure projects on vacant land"}]}, {"num": 17, "fa": "Health and Environment", "goal": "Healthy living", "act": "Improve access to health services, including primary, dental, mental, and women's healthcare", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "17a", "text": "Advocate for and identify incentives and resources for the development of a \"Wellness District\" in the area surrounding LBJ Hospital, providing access to 24-hour urgent care facilities, as well as clinics, doctors, optometrists, dentists, pharmacists, reproductive health, and mental health resources"}, {"id": "17b", "text": "Host regular health fairs and wellness events"}]}, {"num": 18, "fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "act": "Improve drainage infrastructure and expand green infrastructure", "pri": "High", "tf": "Long Term", "keys": [{"id": "18a", "text": "Improve city storm drain systems"}, {"id": "18b", "text": "Advocate for drainage ditch repair and maintenance across the community"}, {"id": "18c", "text": "Promote green stormwater infrastructure across the community"}]}, {"num": 19, "fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "act": "Proactively plan for disasters", "pri": "Low", "tf": "Short Term", "keys": [{"id": "19a", "text": "Create an emergency preparation and evacuation plan"}, {"id": "19b", "text": "Create local CERT Teams (Community Emergency Response Teams)"}, {"id": "19c", "text": "Establish a local emergency messaging mesh network"}]}, {"num": 20, "fa": "Infrastructure and Resilience", "goal": "Transit connected community", "act": "Advocate for improved transit services", "pri": "High", "tf": "Long Term", "keys": [{"id": "20a", "text": "Continue to advocate for the proposed Lockwood Drive BOOST corridor / University Corridor Bus Rapid Transit"}, {"id": "20b", "text": "Continue to improve area bus shelters, benches, and lighting"}, {"id": "20c", "text": "Advocate for improved METRO services across the community, including Curb2Curb services"}, {"id": "20d", "text": "Work with METRO on the re-design of the Kashmere Transit Center"}]}, {"num": 21, "fa": "Infrastructure and Resilience", "goal": "Great streets", "act": "Evaluate, repair, and improve area streets, including streetscaping", "pri": "High", "tf": "Long Term", "keys": [{"id": "21a", "text": "Repair aging streets"}, {"id": "21b", "text": "Provide traffic calming"}, {"id": "21c", "text": "Right-size major thoroughfares and continue neighborhood street improvements"}]}, {"num": 22, "fa": "Infrastructure and Resilience", "goal": "Complete and safe pedestrian network", "act": "Complete and accessible pedestrian network", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "22a", "text": "Continue to advocate for implementation of the Resilient Sidewalk Plan, to create a connected network of sidewalks and safe crosswalks"}]}, {"num": 23, "fa": "Infrastructure and Resilience", "goal": "Rail safety", "act": "Improved rail safety", "pri": "Low", "tf": "Long Term", "keys": [{"id": "23a", "text": "Inventory and evaluate all at-grade rail crossings"}, {"id": "23b", "text": "Advocate for rail quiet zones and grade separations where appropriate"}]}, {"num": 24, "fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "act": "Improve public outreach strategies, communication within the community and with community partners, and organize and host community events and activities", "pri": "High", "tf": "Short Term", "keys": [{"id": "24a", "text": "Develop a resource directory of all programs and services in the community, including contacts for elected officials and departments; focus on ensuring community members know how they can help"}, {"id": "24b", "text": "Develop a bilingual outreach campaign to ensure that all residents are aware of city services, schedules of events, and the resources and programs available in the community, including the work of the NEHRC"}, {"id": "24c", "text": "Utilize a wide range of outreach methods including block walking, social media, text notifications, telephone calls, flyers at neighborhood gathering places, and mailers on a regular basis"}, {"id": "24d", "text": "Create a broad coalition of civic leaders and organizations to plan and host events and activities such as National Night Out, bike rides, annual picnics, and holiday gatherings"}]}, {"num": 25, "fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "act": "Create a coalition of community leaders to guide efforts over both the short and long term, and include representatives from all backgrounds and generations", "pri": "High", "tf": "Short Term", "keys": [{"id": "25a", "text": "Develop committees or task forces to guide community efforts"}, {"id": "25b", "text": "Identify and recruit leaders from different backgrounds and generations"}]}, {"num": 26, "fa": "Community Leadership, Advocacy, and Safety", "goal": "Secure and safe neighborhood", "act": "Improve and maintain street and pedestrian lighting at area bus stops, trails, and streets", "pri": "Low", "tf": "Short Term", "keys": [{"id": "26a", "text": "Advocate for improved lighting in public spaces throughout the neighborhood, including along the Hunting Bayou Greenway, at area bus stops, and along major corridors such as Jensen Dr, Liberty Rd, Collingsworth St, and Lockwood Dr."}]}, {"num": 27, "fa": "Community Leadership, Advocacy, and Safety", "goal": "Secure and safe neighborhood", "act": "Address animal welfare", "pri": "Low", "tf": "Short Term", "keys": [{"id": "27a", "text": "Advocate for the expansion of animal welfare programs (including for livestock) to reduce the number of stray dogs and cats, such as free or low-cost spay and neuter clinics and affordable veterinary care"}]}, {"num": 28, "fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "act": "Expand activities and programs in area parks", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "28a", "text": "Develop a survey to understand the types of programs and activities needed in area parks, including exercise, dance, sports, etc."}]}, {"num": 29, "fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "act": "Improve and maintain existing parks (currently Trinity Gardens Park and Tidwell Park are being improved)", "pri": "Medium", "tf": "Long Term", "keys": [{"id": "29a", "text": "Inventory the conditions at all area parks"}, {"id": "29b", "text": "Develop priorities for improvements at existing parks"}, {"id": "29c", "text": "Explore the development of an outdoor classroom or performance space"}]}, {"num": 30, "fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "act": "Develop new parks (currently Curtis Graves Park is being developed)", "pri": "Low", "tf": "Long Term", "keys": [{"id": "30a", "text": "Identify areas where the closest park is longer than a 10 minute walk"}, {"id": "30b", "text": "Based on this information, identify locations for new parks or pocket parks"}]}, {"num": 31, "fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "act": "Establish a Neighborhood Beautification Campaign", "pri": "High", "tf": "Short Term", "keys": [{"id": "31a", "text": "Create an outreach campaign encouraging residents to report illegal dumping to 311 and abide by trash collection schedules"}, {"id": "31b", "text": "Develop long-term solutions to illegal dumping, including the installation of cameras at hotspots"}, {"id": "31c", "text": "Organize regular neighborhood cleanup events through area civic organizations, churches, and schools"}, {"id": "31d", "text": "Eliminate overgrown vacant lots and dangerous buildings, particularly in hotspots such as Crane St."}]}, {"num": 32, "fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "act": "Expand public art that celebrates culture and history across the community", "pri": "Low", "tf": "Long Term", "keys": [{"id": "32a", "text": "Create an \"Arts in the Gardens\" plan"}, {"id": "32b", "text": "Establish neighborhood gateways"}, {"id": "32c", "text": "Expand arts and cultural programming for people of all ages"}]}], "focus": ["Basic Needs, Education, and Economic Opportunity", "Housing", "Health and Environment", "Infrastructure and Resilience", "Community Leadership, Advocacy, and Safety", "Public Amenities and Neighborhood Character", "Uncategorized / Cross-cutting"], "outcomes": [{"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "Green infrastructure mapping/workshops", "fa2": "Health and Environment", "goal2": "Healthy environment", "fa3": "", "goal3": "", "kid": "18c"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "Nature-based water-policy advocacy", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "18c"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "Household-level green infrastructure/permaculture", "fa2": "Health and Environment", "goal2": "Healthy environment", "fa3": "", "goal3": "", "kid": "18c"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "Flood-risk & green-infra site mapping", "fa2": "Health and Environment", "goal2": "Healthy environment", "fa3": "", "goal3": "", "kid": "18c"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Cross-sector leadership development", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Resident voice with decision-makers", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Literacy/math academic growth (tutoring)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Student social-emotional growth", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "College readiness (college prep)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Student engagement/retention", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "College matriculation (college prep)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Postsecondary persistence (closest: college-support item)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Grads returning as community leaders", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Youth job-readiness/confidence (internship program)", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Workplace emotional/communication skills", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Workplace self-advocacy/boundaries", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Workplace-expectations readiness", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Resume/interview skills", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Employer supervision capacity for youth", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Small businesses are growing and successful", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Youth internship placement stability", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own repeatable program model", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Post-internship employment/education continuity", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Case management: academics/behavior/attendance", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2a"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Case management: grade promotion", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2a"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Case management: school persistence", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2a"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Student & family school-transition support", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2a"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "pa": 1, "rat": "Public-benefits awareness outreach", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "Basic Needs, Education, and Economic Opportunity", "goal3": "Community members are financially secure", "kid": "1c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "pa": 1, "rat": "Connecting eligible households to food/health/income programs", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "Health and Environment", "goal3": "Healthy living", "kid": "1c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "pa": 1, "rat": "Increased benefits enrollment/uptake", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "1c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "pa": 1, "rat": "Benefits unlocked per household", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "1c"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Food-access + benefits-enrollment coordination model", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have their basic needs met (food, rent, utilities, etc.)", "fa3": "Community Leadership, Advocacy, and Safety", "goal3": "United community of leaders and advocates", "kid": "14a"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Job-readiness training completion", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Employment/training retention", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Placement completion", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Job readiness + financial literacy", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Adult education/credential attainment", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Sustained employment/income stability", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Re-entry services reduce recidivism", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "Secure and safe neighborhood", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Long-term family self-sufficiency", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "4c"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Estate planning prevents heirship/title problems", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "8b"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Legal help preventing property loss", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "8b"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Legal rights/options knowledge", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "8b"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Homeownership/equity preservation", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "8b"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Community-embedded legal access reaches homeowners in need", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "8a"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Replicable one-stop legal hub", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "8b"}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Direct mental-health counseling", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Quality of mental-health care", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Parent emotional regulation/confidence", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Parenting skills/family communication", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Family stability/resilience", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Housing preservation + homeowner repairs", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Nonprofit affordable homeownership pipeline", "fa2": "Housing", "goal2": "Homeownership is increasing", "fa3": "", "goal3": "", "kid": "10d"}, {"fa": "Housing", "goal": "Homeownership is increasing", "pa": 9, "rat": "Renter-to-owner counseling", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "9a"}, {"fa": "Housing", "goal": "Homeownership is increasing", "pa": 9, "rat": "Homebuyer financial readiness", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "9a"}, {"fa": "Housing", "goal": "Homeownership is increasing", "pa": 9, "rat": "Homebuyer counseling for lower-income households", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "9a"}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "pa": 31, "rat": "Fewer vacant/distressed properties", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "31d"}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "pa": 31, "rat": "Visible renewal of distressed blocks", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "31d"}, {"fa": "Housing", "goal": "Homeownership is increasing", "pa": 9, "rat": "Reverse decline in Black homeownership", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "Basic Needs, Education, and Economic Opportunity", "goal3": "Community members are financially secure", "kid": ""}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Physical-activity/wellness programming", "fa2": "Public Amenities and Neighborhood Character", "goal2": "Beautiful and safe parks and open spaces", "fa3": "", "goal3": "", "kid": "17b"}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Healthy behaviors (diet, sleep)", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "", "goal3": "", "kid": "17b"}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Walking/biking for well-being & connection", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "17b"}, {"fa": "Infrastructure and Resilience", "goal": "Complete and safe pedestrian network", "pa": 22, "rat": "Walk & bike audits", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "Secure and safe neighborhood", "fa3": "Infrastructure and Resilience", "goal3": "Great streets", "kid": "22a"}, {"fa": "Infrastructure and Resilience", "goal": "Complete and safe pedestrian network", "pa": 22, "rat": "Audits inform sidewalk/lighting/trail investment", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "Secure and safe neighborhood", "fa3": "Public Amenities and Neighborhood Character", "goal3": "Beautiful and safe parks and open spaces", "kid": "22a"}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "pa": 28, "rat": "Sustained park use & walking groups", "fa2": "Health and Environment", "goal2": "Healthy living", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Parent education-advocacy knowledge", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Parent confidence supporting education", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Parent trust/involvement in school", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Parents as education advocates", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Parent-ambassador education report", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Parent leadership shifts school-community dynamics", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Replicable parent-advocacy model", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Flood-resilience understanding", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Hub House info website access", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Hub House / NAC participation", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "pa": 32, "rat": "Participatory flood-resilience mural", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "Community Leadership, Advocacy, and Safety", "goal3": "United community of leaders and advocates", "kid": "32c"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Hub House access to resilience resources", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "Fewer homes with lasting flood damage", "fa2": "Housing", "goal2": "Homes are safe and livable", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "City funds drainage repair", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "18b"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "More Hub Houses built", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "pa": 32, "rat": "Mural expansion / Hunting Bayou installation", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "", "goal3": "", "kid": "32c"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "CLT knowledge; residents recommend projects", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "10a"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Resilient affordable homes, community-centered density", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "10c"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Intergenerational property-transfer planning", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "8b"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Access to a resiliency hub", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Permanently affordable, no-displacement development", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "10a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Resident governance of the CLT", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Pre-weatherization repairs", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Lower utility bills", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Quality of life after repair", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Aging in place / passing homes down", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Weatherization benefits realized", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Critical health/safety hazards resolved", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Remain safely housed after repair", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Improved sense of safety at home", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Weather-resilience repairs", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Reduced repair-related financial stress", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Aging in place, avoiding displacement", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "7e"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Resilient design/ownership knowledge", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "", "goal3": "", "kid": "10a"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Community input on housing design", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "10a"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Trust in Land Bank partnership", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "10d"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Partner readiness for Land Bank development", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "10d"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Predevelopment/funding materials", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "10a"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Resilient lots for ownership/rental", "fa2": "Infrastructure and Resilience", "goal2": "Resilience from flood risks", "fa3": "", "goal3": "", "kid": "10d"}, {"fa": "Housing", "goal": "Homeownership is increasing", "pa": 9, "rat": "Pipeline of prospective homebuyers", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Small businesses are growing and successful", "fa3": "Community Leadership, Advocacy, and Safety", "goal3": "United community of leaders and advocates", "kid": "9b"}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "pa": 29, "rat": "Survey-driven park improvement priorities", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "29b"}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "pa": 29, "rat": "Resident participation in park design/art", "fa2": "Public Amenities and Neighborhood Character", "goal2": "Beautiful neighborhood", "fa3": "Community Leadership, Advocacy, and Safety", "goal3": "United community of leaders and advocates", "kid": "29b"}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "pa": 29, "rat": "Park renovation permitting/construction", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "pa": 29, "rat": "Actively used, accessible renovated park", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful and safe parks and open spaces", "pa": 29, "rat": "Resident satisfaction/safety after renovation", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "Secure and safe neighborhood", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Public Amenities and Neighborhood Character", "goal": "Beautiful neighborhood", "pa": 32, "rat": "Community art in park", "fa2": "Public Amenities and Neighborhood Character", "goal2": "Beautiful and safe parks and open spaces", "fa3": "", "goal3": "", "kid": "32c"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 18, "rat": "Park stormwater detention", "fa2": "Public Amenities and Neighborhood Character", "goal2": "Beautiful and safe parks and open spaces", "fa3": "", "goal3": "", "kid": "18c"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Church leader governance/finance knowledge", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Churches adopt stronger practices", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Church leader confidence", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Church organizational stability", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "New church-partner collaborations", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Church-led community-facing initiatives", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Churches as community anchors", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Sustained coalition engagement", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Ministry coordination, less duplication", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "24a"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Youth self-confidence (summer program)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Trusted-adult/mentor relationships", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2c"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Summer internship retention", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "pa": 3, "rat": "Youth financial literacy", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": "3b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Career clarity", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "School-to-career connection", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have the skills to secure jobs that allow them to build wealth", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "School attendance", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "HS graduation & postsecondary enrollment", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have the skills to secure jobs that allow them to build wealth", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have the skills to secure jobs that allow them to build wealth", "pa": 4, "rat": "Long-term employment & wellness", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "Health and Environment", "goal3": "Healthy living", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Transit connected community", "pa": 20, "rat": "Transit advocacy support", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "20c"}, {"fa": "Infrastructure and Resilience", "goal": "Transit connected community", "pa": 20, "rat": "Transit learning", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "20c"}, {"fa": "Infrastructure and Resilience", "goal": "Transit connected community", "pa": 20, "rat": "Civic confidence with agencies", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "20c"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Ambassador leadership skills", "fa2": "Infrastructure and Resilience", "goal2": "Transit connected community", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Infrastructure and Resilience", "goal": "Transit connected community", "pa": 20, "rat": "Accessible transit engagement", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "20c"}, {"fa": "Infrastructure and Resilience", "goal": "Transit connected community", "pa": 20, "rat": "Routing memos elevate priorities", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "20c"}, {"fa": "Infrastructure and Resilience", "goal": "Transit connected community", "pa": 20, "rat": "Sustained transportation participation", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "20c"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Neighborhood leadership & agency feedback loop", "fa2": "Infrastructure and Resilience", "goal2": "Transit connected community", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "STEM identity", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "STEM confidence", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "Positive STEM attitudes", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "STEM interest/curiosity", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "STEM career awareness", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have the skills to secure jobs that allow them to build wealth", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Students and their families are supported holistically", "pa": 2, "rat": "STEM pipeline", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have the skills to secure jobs that allow them to build wealth", "fa3": "", "goal3": "", "kid": "2d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "pa": 1, "rat": "Coordinating non-governmental food/wellness resources", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "Community Leadership, Advocacy, and Safety", "goal3": "United community of leaders and advocates", "kid": "1d"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Consistent food & wellness access", "fa2": "Health and Environment", "goal2": "Healthy living", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Year-long activation calendar of events", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Health and Environment", "goal": "Healthy living", "pa": 17, "rat": "Wellness-resource knowledge", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "", "goal3": "", "kid": "17b"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Neighborhood food & health infrastructure", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Food security & health", "fa2": "Health and Environment", "goal2": "Healthy living", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own fundraising", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own revenue diversification", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Stronger community partnerships", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have their basic needs met (food, rent, utilities, etc.)", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members have their basic needs met (food, rent, utilities, etc.)", "pa": 1, "rat": "Community feedback on needs", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "1a"}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own operations/data capacity", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own sustainability/staffing", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Training residents/volunteers as leaders", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Small businesses are growing and successful", "pa": 5, "rat": "Child-care business training", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "5b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Small businesses are growing and successful", "pa": 5, "rat": "Child-care educator financial security", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "5b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "pa": 3, "rat": "Accredited, high-quality child care", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Small businesses are growing and successful", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "pa": 3, "rat": "Quality/sustainable child-care slots", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Small businesses are growing and successful", "pa": 5, "rat": "Child-care business continuity", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "5b"}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "pa": 3, "rat": "Child care that supports parents working", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have the skills to secure jobs that allow them to build wealth", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "pa": 3, "rat": "Early learning environments", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Students and their families are supported holistically", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Basic Needs, Education, and Economic Opportunity", "goal": "Community members are financially secure", "pa": 3, "rat": "Supply of early care & education", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Disaster case-management capacity", "fa2": "Housing", "goal2": "Homes are safe and livable", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "NEHRC capacity to lead/track plan", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Action-plan implementation capacity", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "CERT training", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "19b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Meetings/surveys inform updated plan", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Communications plan for residents", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "24b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Updated 5-10 year plan", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own facility-management capacity", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Chatham as trusted community/resilience space", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Community-controlled resilience hub planning", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Nonprofit-sector capacity (no matching KG item)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "NEHRC as convener/intermediary", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Grantee's own investment readiness", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Infrastructure and Resilience", "goal": "Resilience from flood risks", "pa": 19, "rat": "Community-owned resilience hub/service anchor", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Anti-racist leadership development", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Reflective leadership practice", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Sustained leadership skills", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Leadership confidence", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Research/policy advocacy skills", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Solidarity and collective action", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "BIPOC leadership network", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Free fresh-food access improves quality of life", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have their basic needs met (food, rent, utilities, etc.)", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Grocery savings", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members are financially secure", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 24, "rat": "Social connection at community events", "fa2": "Health and Environment", "goal2": "Healthy food", "fa3": "", "goal3": "", "kid": "24d"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Recurring free fresh-food access", "fa2": "Basic Needs, Education, and Economic Opportunity", "goal2": "Community members have their basic needs met (food, rent, utilities, etc.)", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Health and Environment", "goal": "Healthy food", "pa": 14, "rat": "Healthier eating via fresh-food access", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "14a"}, {"fa": "Uncategorized / Cross-cutting", "goal": "", "pa": 0, "rat": "Food-waste reduction (no matching KG item)", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Housing-program & rights knowledge", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": ""}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Civic confidence on housing", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Residents speaking to officials/media", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "25b"}, {"fa": "Housing", "goal": "Homeowners are secure", "pa": 8, "rat": "Partner housing-navigation capacity", "fa2": "Community Leadership, Advocacy, and Safety", "goal2": "United community of leaders and advocates", "fa3": "", "goal3": "", "kid": "8c"}, {"fa": "Housing", "goal": "Homes are safe and livable", "pa": 7, "rat": "Support completing home-repair programs", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": "7d"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Tenant rights / rental-housing conditions", "fa2": "", "goal2": "", "fa3": "", "goal3": "", "kid": "10e"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Neighborhood housing working group", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Community Leadership, Advocacy, and Safety", "goal": "United community of leaders and advocates", "pa": 25, "rat": "Resident-led housing goals & advocacy", "fa2": "Housing", "goal2": "Quality housing options are available to all", "fa3": "", "goal3": "", "kid": "25a"}, {"fa": "Housing", "goal": "Quality housing options are available to all", "pa": 10, "rat": "Access to affordable, stable, fair housing", "fa2": "Housing", "goal2": "Homeowners are secure", "fa3": "", "goal3": "", "kid": ""}], "hasKeys": true};
+
+const KG_ACTIONS = KG.actions;
+const KG_FOCUS = KG.focus;
+const KG_BY_NUM = {}; KG_ACTIONS.forEach(a=>KG_BY_NUM[a.num]=a);
+const KEY_BY_ID = {}; if(KG.hasKeys) KG_ACTIONS.forEach(a=>a.keys.forEach(k=>{ KEY_BY_ID[k.id]={...k, pa:a.num}; }));
+function kgCountKey(id){ return outcomes.filter(o=>o.kg.kid===id).length; }
+function kgGrantsKey(id){ return new Set(outcomes.filter(o=>o.kg.kid===id).map(o=>o.org)).size; }
+outcomes.forEach((o,i)=>{ o.kg = KG.outcomes[i]; });
+const UNCAT = 'Uncategorized / Cross-cutting';
+const PRIO_ORDER = {High:0,Medium:1,Low:2};
+const PRIO_CLASS = {High:'high',Medium:'medium',Low:'low'};
+
+function kgPrimaryFa(fa){ return outcomes.filter(o=>o.kg.fa===fa).length; }
+function kgCombinedFa(fa){
+  let n=0; outcomes.forEach(o=>{ if(o.kg.fa===fa || o.kg.fa2===fa || o.kg.fa3===fa) n++; }); return n;
+}
+function kgOutcomesForPA(num){ return outcomes.filter(o=>o.kg.pa===num); }
+function kgSecondaryGoal(fa, goal){ return outcomes.filter(o=>(o.kg.fa2===fa&&o.kg.goal2===goal)||(o.kg.fa3===fa&&o.kg.goal3===goal)).length; }
+
+const kgRows = KG_ACTIONS.map(a=>{
+  const m = kgOutcomesForPA(a.num);
+  const n = m.length;
+  return {...a, n, matched:m, grants:new Set(m.map(o=>o.org)).size, cov: n===0?'gap':(n<=2?'thin':'covered')};
+});
+
+// ---------- 2026 KPI strip ----------
+const kgGaps = kgRows.filter(r=>r.n===0);
+const kgHighGaps = kgGaps.filter(r=>r.pri==='High').length;
+const kgUncat = outcomes.filter(o=>o.kg.fa===UNCAT).length;
+const kgMulti = outcomes.filter(o=>o.kg.fa2).length;
+const kgKeyGaps = KG.hasKeys ? KG_ACTIONS.filter(a=>kgOutcomesForPA(a.num).length>0).flatMap(a=>a.keys.map(k=>({...k, a}))).filter(k=>kgCountKey(k.id)===0) : [];
+document.getElementById('kgKpiGrid').innerHTML = [
+  {num:String(kgGaps.length), lbl:'2026 priority actions with zero grant outcomes (primary match)'},
+  KG.hasKeys ? {num:String(kgKeyGaps.length), lbl:'Specific key actions still unaddressed, within otherwise-active priority actions'}
+             : {num:String(kgHighGaps), lbl:'of those are High-priority actions'},
+  {num:String(kgMulti), lbl:'Grant outcomes advancing more than one 2026 outcome/goal'},
+  {num:String(kgUncat), lbl:"Grant outcomes with no 2026 plan match (mostly a grantee's own operations)"},
+].map(k=>`<div class="kpi"><div class="num">${k.num}</div><div class="lbl">${k.lbl}</div></div>`).join('');
+
+// ---------- 2026 focus-area bar chart ----------
+let kgMode = 'primary';
+function renderKgBars(){
+  const rows = KG_FOCUS.map(fa=>({fa, val: kgMode==='primary'?kgPrimaryFa(fa):kgCombinedFa(fa)}));
+  const max = Math.max(...rows.map(r=>r.val),1);
+  const cls = kgMode==='primary' ? 'kg' : 'combined';
+  document.getElementById('kgBarChart').innerHTML = rows.map(r=>`
+    <div class="bar-row" title="${r.fa}: ${r.val} grant outcomes">
+      <div class="bar-label">${r.fa}</div>
+      <div class="bar-track"><div class="bar-fill ${cls}" style="width:${(r.val/max*100).toFixed(1)}%"></div></div>
+      <div class="bar-val">${r.val}</div>
+    </div>`).join('');
+}
+document.getElementById('kgCovToggle').addEventListener('click',(e)=>{
+  const btn=e.target.closest('button'); if(!btn) return;
+  kgMode=btn.dataset.mode;
+  [...document.getElementById('kgCovToggle').children].forEach(b=>b.classList.toggle('active', b===btn));
+  renderKgBars();
+});
+renderKgBars();
+
+// ---------- 2026 priority-action table ----------
+const kgFocusSel = document.getElementById('kgFocusFilter');
+KG_FOCUS.filter(f=>f!==UNCAT).forEach(f=>{ const o=document.createElement('option'); o.value=f; o.textContent=f; kgFocusSel.appendChild(o); });
+const kgExpanded = new Set();
+function keyRows(r){
+  const ks = r.keys.map(k=>{
+    const m = kgCountKey(k.id);
+    return `
+      <div class="item-row">
+        <div></div>
+        <div class="item-text"><span class="ka-id">${k.id}</span>${k.text}</div>
+        <div></div>
+        <div></div>
+        <div>${m}<span class="mob-lbl"> outcome${m===1?'':'s'} matched</span></div>
+        <div>${kgGrantsKey(k.id)}<span class="mob-lbl"> independent grants</span></div>
+        <div class="${m===0?'cov-gap':'cov-ok'}">${m===0?'No specific match':'Matched'}</div>
+      </div>`;
+  }).join('');
+  const broad = r.matched.filter(o=>!o.kg.kid);
+  const broadRow = broad.length ? `
+      <div class="item-row broad">
+        <div></div>
+        <div class="item-text">Advances this priority action broadly, with no single key action as the fit</div>
+        <div></div>
+        <div></div>
+        <div>${broad.length}<span class="mob-lbl"> outcomes</span></div>
+        <div>${new Set(broad.map(o=>o.org)).size}<span class="mob-lbl"> independent grants</span></div>
+        <div></div>
+      </div>` : '';
+  return ks + broadRow;
+}
+function renderKgTable(){
+  const fV=kgFocusSel.value, pV=document.getElementById('kgPrioFilter').value, cV=document.getElementById('kgCovFilter').value;
+  const rows = kgRows.filter(r=>(!fV||r.fa===fV)&&(!pV||r.pri===pV)&&(!cV||r.cov===cV));
+  const covLabel={gap:'NO ACTIVITY',thin:'THIN',covered:'COVERED'};
+  const covClass={gap:'cov-gap',thin:'cov-thin',covered:'cov-ok'};
+  document.getElementById('kgTableBody').innerHTML = rows.map(r=>{
+    const open = kgExpanded.has(r.num);
+    const list = KG.hasKeys ? keyRows(r) : r.matched.length ? r.matched.map(o=>`
+      <div class="match-row"><b>${o.org}</b> <span class="m-area">· ${o.area} · ${o.timeframe}</span><br>${o.text}</div>`).join('')
+      : `<div class="match-empty">No grant outcome has this priority action as its primary match.</div>`;
+    return `
+      <div class="goal-row ${open?'expanded':''}" data-num="${r.num}">
+        <div class="chev">▸</div>
+        <div class="g-goal-txt"><span class="pa-num">#${r.num}</span>${r.act}<span class="kg-sub">Goal: ${r.goal}</span></div>
+        <div class="g-cat-txt">${r.fa}</div>
+        <div><span class="pill ${PRIO_CLASS[r.pri]}">${r.pri}</span><span class="tf">${r.tf}</span></div>
+        <div>${r.n}<span class="mob-lbl"> outcomes matched (primary)</span></div>
+        <div>${r.grants}<span class="mob-lbl"> independent grants</span></div>
+        <div class="${covClass[r.cov]}">${covLabel[r.cov]}</div>
+      </div>
+      <div class="items-panel ${open?'open':''}">${list}</div>`;
+  }).join('') || '<p style="padding:14px; font-size:13px; color:var(--text-dim);">No priority actions match these filters.</p>';
+  document.querySelectorAll('#kgTableBody .goal-row').forEach(row=>{
+    row.addEventListener('click',()=>{
+      const n=+row.dataset.num;
+      if(kgExpanded.has(n)) kgExpanded.delete(n); else kgExpanded.add(n);
+      renderKgTable();
+    });
+  });
+}
+['kgFocusFilter','kgPrioFilter','kgCovFilter'].forEach(id=>document.getElementById(id).addEventListener('change', renderKgTable));
+document.getElementById('kgExpandAll').addEventListener('click',()=>{
+  const all = kgRows.every(r=>kgExpanded.has(r.num));
+  if(all) kgExpanded.clear(); else kgRows.forEach(r=>kgExpanded.add(r.num));
+  renderKgTable();
+});
+renderKgTable();
+
+// ---------- 2026 gaps ----------
+let kgGapMode = 'action';
+function renderKgGaps(){
+  if(KG.hasKeys && kgGapMode==='key'){
+    const g = [...kgKeyGaps].sort((a,b)=>(PRIO_ORDER[a.a.pri]-PRIO_ORDER[b.a.pri]) || (a.a.num-b.a.num));
+    document.getElementById('kgGapGrid').innerHTML = g.map(x=>`
+      <div class="gap-card">
+        <div class="flag">Priority action has grant activity, but not on this key action</div>
+        <div class="g-cat">${x.a.fa} → #${x.a.num} ${x.a.act}</div>
+        <div class="g-item"><span class="pill ${PRIO_CLASS[x.a.pri]}">${x.a.pri}</span> &nbsp;<b>${x.id}</b> ${x.text}</div>
+      </div>`).join('') || '<p style="font-size:13px; color:var(--text-dim);">No gaps at this level.</p>';
+    return;
+  }
+  const g = [...kgGaps].sort((a,b)=>(PRIO_ORDER[a.pri]-PRIO_ORDER[b.pri]) || (a.num-b.num));
+  document.getElementById('kgGapGrid').innerHTML = g.map(x=>{
+    const siblings = kgRows.filter(r=>r.goal===x.goal && r.fa===x.fa && r.num!==x.num).reduce((s,r)=>s+r.n,0);
+    const secN = kgSecondaryGoal(x.fa, x.goal);
+    const badges = [];
+    if(siblings>0) badges.push(`<span class="sec-badge">Other actions under this goal: ${siblings} primary outcome${siblings===1?'':'s'}</span>`);
+    if(secN>0) badges.push(`<span class="sec-badge">Goal appears as a secondary match ${secN}×</span>`);
+    if(!badges.length) badges.push(`<span class="no-sec-badge">Goal not touched as a secondary match either</span>`);
+    return `
+      <div class="gap-card">
+        <div class="flag">No grant outcome has this as its primary action</div>
+        <div class="g-cat">${x.fa} → ${x.goal}</div>
+        <div class="g-item"><span class="pill ${PRIO_CLASS[x.pri]}">${x.pri}</span> &nbsp;<b>#${x.num}</b> ${x.act}</div>
+        <div>${badges.join(' ')}</div>
+      </div>`;
+  }).join('') || '<p style="font-size:13px; color:var(--text-dim);">No gaps at this level.</p>';
+}
+if(KG.hasKeys){
+  const t = document.getElementById('kgGapToggle');
+  t.querySelector('[data-mode="action"]').textContent = `PRIORITY ACTIONS WITH NO ACTIVITY (${kgGaps.length})`;
+  t.querySelector('[data-mode="key"]').textContent = `UNADDRESSED KEY ACTIONS (${kgKeyGaps.length})`;
+  t.addEventListener('click',(e)=>{
+    const btn=e.target.closest('button'); if(!btn) return;
+    kgGapMode=btn.dataset.mode;
+    [...t.children].forEach(b=>b.classList.toggle('active', b===btn));
+    renderKgGaps();
+  });
+}
+renderKgGaps();
+
+// ---------- Part C: comparison ----------
+(function renderCompare(){
+  const pct = (a,b)=> Math.round(a/b*100)+'%';
+  const ccItemsMatched = items.filter(it=>countItem(it.Outcome)>0).length;
+  const ccHigh = items.filter(it=>it.Priority==='High');
+  const ccHighMatched = ccHigh.filter(it=>countItem(it.Outcome)>0).length;
+  const ccGoalsMatched = goals.filter(g=>countPrimary(g.Category,g.Goal)>0).length;
+  const kgMatched = kgRows.filter(r=>r.n>0).length;
+  const kgHigh = kgRows.filter(r=>r.pri==='High');
+  const kgHighMatched = kgHigh.filter(r=>r.n>0).length;
+  const kgGoalList = [...new Set(KG_ACTIONS.map(a=>a.fa+'||'+a.goal))];
+  const kgGoalsMatched = kgGoalList.filter(k=>kgRows.some(r=>(r.fa+'||'+r.goal)===k && r.n>0)).length;
+  const keyAll = KG.hasKeys ? KG_ACTIONS.flatMap(a=>a.keys.map(k=>({...k, pri:a.pri}))) : [];
+  const keyMatched = keyAll.filter(k=>kgCountKey(k.id)>0).length;
+  const keyHigh = keyAll.filter(k=>k.pri==='High');
+  const keyHighMatched = keyHigh.filter(k=>kgCountKey(k.id)>0).length;
+  const ccUncat = outcomes.filter(o=>o.cat===UNCAT).length;
+  const ccMulti = outcomes.filter(o=>o.cat2).length;
+  const row = (label, cc, ccSub, kg, kgSub)=>`<tr><td>${label}</td>
+    <td><span class="big">${cc}</span>${ccSub?`<span class="sub">${ccSub}</span>`:''}</td>
+    <td><span class="big">${kg}</span>${kgSub?`<span class="sub">${kgSub}</span>`:''}</td></tr>`;
+  document.getElementById('cmpTable').innerHTML = `
+    <thead><tr><th></th><th class="cc">Complete Community Action Plan</th><th class="kg">2026 Kashmere Gardens Priorities</th></tr></thead>
+    <tbody>
+      ${KG.hasKeys
+        ? row('Plan structure','10 · 32 · 82','categories · goals · action items','6 · 22 · 32 · 90','focus areas · outcomes/goals · priority actions · key actions')
+        : row('Plan structure','10 · 32 · 82','categories · goals · action items','6 · 22 · 32','focus areas · outcomes/goals · priority actions')}
+      ${KG.hasKeys
+        ? row('Most specific level matched','Action item','82 line items','Key action','90 line items')
+        : row('Most specific level matched','Action item','82 line items','Priority action','32 line items')}
+      ${row('Goals with ≥1 primary grant outcome', ccGoalsMatched+' of '+goals.length, pct(ccGoalsMatched,goals.length), kgGoalsMatched+' of '+kgGoalList.length, pct(kgGoalsMatched,kgGoalList.length))}
+      ${KG.hasKeys ? row('Priority actions with ≥1 primary grant outcome', '—', 'No equivalent level in this plan', kgMatched+' of '+kgRows.length, pct(kgMatched,kgRows.length)+' of priority actions') : ''}
+      ${KG.hasKeys
+        ? row('Most specific line items with ≥1 primary grant outcome', ccItemsMatched+' of '+items.length, pct(ccItemsMatched,items.length)+' of action items', keyMatched+' of '+keyAll.length, pct(keyMatched,keyAll.length)+' of key actions')
+        : row('Most specific line items with ≥1 primary grant outcome', ccItemsMatched+' of '+items.length, pct(ccItemsMatched,items.length)+' of action items', kgMatched+' of '+kgRows.length, pct(kgMatched,kgRows.length)+' of priority actions')}
+      ${KG.hasKeys
+        ? row('High-priority line items with ≥1 primary grant outcome', ccHighMatched+' of '+ccHigh.length, pct(ccHighMatched,ccHigh.length)+' of High-priority action items', keyHighMatched+' of '+keyHigh.length, pct(keyHighMatched,keyHigh.length)+' of key actions under High-priority actions')
+        : row('High-priority line items with ≥1 primary grant outcome', ccHighMatched+' of '+ccHigh.length, pct(ccHighMatched,ccHigh.length), kgHighMatched+' of '+kgHigh.length, pct(kgHighMatched,kgHigh.length))}
+      ${row('Grant outcomes with no plan match', ccUncat, 'Uncategorized / cross-cutting', kgUncat, 'Uncategorized / cross-cutting')}
+      ${row('Grant outcomes with a secondary match', ccMulti, '', kgMulti, '')}
+    </tbody>`;
+
+  // crosswalk heatmap (sequential, single hue)
+  const cols = KG_FOCUS, rowsC = CAT_ORDER;
+  const cnt = (c,f)=> outcomes.filter(o=>o.cat===c && o.kg.fa===f).length;
+  let max = 1; rowsC.forEach(c=>cols.forEach(f=>{ max=Math.max(max,cnt(c,f)); }));
+  const cell = (c,f)=>{
+    const v=cnt(c,f);
+    if(!v) return `<td title="${c} → ${f}: 0">·</td>`;
+    const t = v/max, alpha = (0.14 + 0.78*t).toFixed(2);
+    const dark = t > 0.42;
+    return `<td title="${c} → ${f}: ${v} outcome${v===1?'':'s'}" style="background:rgba(94,75,139,${alpha}); color:${dark?'#fff':'var(--navy)'}; font-weight:600;">${v}</td>`;
+  };
+  const short = f => f===UNCAT ? 'No 2026 match' : f;
+  document.getElementById('xwalk').innerHTML = `
+    <thead><tr><th class="corner">CC category ↓ &nbsp; 2026 focus area →</th>${cols.map(f=>`<th>${short(f)}</th>`).join('')}<th class="tot">Total</th></tr></thead>
+    <tbody>${rowsC.map(c=>`<tr><th>${c===UNCAT?'No CC match':c}</th>${cols.map(f=>cell(c,f)).join('')}<td class="tot">${countPrimary(c)}</td></tr>`).join('')}
+      <tr><th class="tot">Total</th>${cols.map(f=>`<td class="tot">${kgPrimaryFa(f)}</td>`).join('')}<td class="tot">${outcomes.length}</td></tr>
+    </tbody>`;
+
+  // key differences (structural, from the two plans)
+  const diffs = [
+    {flag:'Direct match in 2026', title:'Child care has a direct match', body:`The 2026 plan names affordable child care inside priority action #3 (High). Early-care outcomes that have no Complete Community match align to it under the 2026 plan.`,
+     from:'Uncategorized / Cross-cutting', to:'#3 Ensure families have tools for financial security, including access to affordable childcare'},
+    {flag:'Direct match in 2026', title:'Basic needs & benefits enrollment', body:`The 2026 plan includes a High-priority basic-needs action that explicitly covers enrollment in SNAP, WIC, Medicaid and similar programs. Benefits-access outcomes align there under 2026, versus financial-literacy and health-access items under the Complete Community Plan.`,
+     from:'Financially Confident Community / Healthy Living', to:'#1 Ensure families have their basic needs met'},
+    {flag:'Direct match in 2026', title:'Re-entry and workforce services', body:`The 2026 workforce action lists re-entry services and adult education. Under 2026, re-entry and young-adult workforce outcomes share one action; under the Complete Community Plan they are split across jobs, financial-confidence and crime-prevention goals.`,
+     from:'Expanded Employment Opportunities / Financially Confident Community / United and Safe Community', to:'#4 Develop a comprehensive Job Training / Workforce Development Center'},
+    {flag:'No 2026 equivalent', title:'Items without a 2026 counterpart', body:`The 2026 plan has no separate line for a resilience hub, leadership training, community meeting places, or parent engagement. Outcomes on those topics were matched to the nearest 2026 action, and the "Why" note says when the fit is approximate.`,
+     from:'Resilience Hub · Leadership training · Meeting places · Parent engagement', to:'#19 Plan for disasters · #25 Coalition of leaders · #2 Holistic student & parent support'},
+    {flag:'Priority shift', title:'Same work, different priority', body:`Several areas with heavy grant activity carry a different priority level in each plan.`,
+     from:'Proactively prepare for disasters (High) · Leadership training (Medium) · Tutors & mentors (Low)', to:'Proactively plan for disasters (Low) · Coalition of community leaders (High) · Holistic student support (High)'},
+  ];
+  document.getElementById('diffGrid').innerHTML = diffs.map(d=>`
+    <div class="diff-card">
+      <div class="flag">${d.flag}</div>
+      <div class="d-title">${d.title}</div>
+      <p>${d.body}</p>
+      <div class="arrow"><span class="from">CC:</span> ${d.from}</div>
+      <div class="arrow"><span class="to">2026:</span> ${d.to}</div>
+    </div>`).join('');
+
+  // outcomes whose matched / unmatched status changed
+  const gained = outcomes.filter(o=>o.cat===UNCAT && o.kg.fa!==UNCAT);
+  const lost = outcomes.filter(o=>o.cat!==UNCAT && o.kg.fa===UNCAT);
+  document.getElementById('movedNote').textContent =
+    `${gained.length} outcome${gained.length===1?'':'s'} ${gained.length===1?'has':'have'} no Complete Community match but ${gained.length===1?'matches':'match'} a 2026 priority action. ${lost.length} outcome${lost.length===1?'':'s'} ${lost.length===1?'matches':'match'} a Complete Community goal but ${lost.length===1?'has':'have'} no 2026 match.`;
+  const line = (o, gainedFlag)=>`
+    <div class="moved-row"><b>${o.org}</b>: ${o.text}
+      <div class="arrow"><span class="from">CC:</span> ${o.cat===UNCAT?'No match':o.cat+' → '+o.goal}</div>
+      <div class="arrow"><span class="to">2026:</span> ${o.kg.pa?('#'+o.kg.pa+' '+KG_BY_NUM[o.kg.pa].act):'No match'}</div>
+    </div>`;
+  document.getElementById('movedList').innerHTML = gained.map(o=>line(o,true)).join('') + lost.map(o=>line(o,false)).join('');
+})();
+
 // ---------- Outcome explorer ----------
 const orgSel = document.getElementById('oOrgFilter');
 [...new Set(outcomes.map(o=>o.org))].sort().forEach(org=>{
@@ -513,15 +1013,48 @@ const orgSel = document.getElementById('oOrgFilter');
 const oCatSel = document.getElementById('oCatFilter');
 CAT_ORDER.forEach(c=>{ const o=document.createElement('option'); o.value=c; o.textContent=c; oCatSel.appendChild(o); });
 
+const oKgSel = document.getElementById('oKgFilter');
+KG_FOCUS.forEach(c=>{ const o=document.createElement('option'); o.value=c; o.textContent=c; oKgSel.appendChild(o); });
+function kgBlock(o){
+  const k = o.kg;
+  if(!k.pa){
+    return `<div class="o-plan kg"><div class="o-plan-h">2026 Priorities</div>
+      <div class="o-tags"><span class="tag kg">Uncategorized / Cross-cutting</span></div>
+      <div class="o-rationale">Why: ${k.rat}</div></div>`;
+  }
+  const a = KG_BY_NUM[k.pa];
+  return `<div class="o-plan kg"><div class="o-plan-h">2026 Priorities</div>
+    <div class="o-tags">
+      <span class="tag-lbl">Goal:</span>
+      <span class="tag kg">${k.fa} → ${k.goal}</span>
+      ${k.fa2 ? `<span class="tag sec">${k.fa2} → ${k.goal2}</span>`:''}
+      ${k.fa3 ? `<span class="tag sec">${k.fa3} → ${k.goal3}</span>`:''}
+    </div>
+    <div class="o-tags" style="margin-top:6px;">
+      <span class="tag-lbl">Priority action:</span>
+      <span class="tag kgact">#${a.num} ${a.act} (${a.pri})</span>
+    </div>${KG.hasKeys ? (k.kid ? `
+    <div class="o-tags" style="margin-top:6px;">
+      <span class="tag-lbl">Key action:</span>
+      <span class="tag kg">${k.kid} ${KEY_BY_ID[k.kid].text}</span>
+    </div>` : `
+    <div class="o-tags" style="margin-top:6px;">
+      <span class="tag-lbl">Key action:</span>
+      <span class="tag" style="background:#EEEDE8; color:var(--text-dim);">Advances the priority action broadly; no single key action fits</span>
+    </div>`) : ''}
+    <div class="o-rationale">Why: ${k.rat}</div></div>`;
+}
 function renderOutcomes(){
   const q = document.getElementById('oSearch').value.trim().toLowerCase();
   const orgV = orgSel.value;
   const catV = oCatSel.value;
+  const kgV = oKgSel.value;
   let rows = outcomes.filter(o=>{
     if(orgV && o.org!==orgV) return false;
     if(catV && o.cat!==catV && o.cat2!==catV && o.cat3!==catV) return false;
+    if(kgV && o.kg.fa!==kgV && o.kg.fa2!==kgV && o.kg.fa3!==kgV) return false;
     if(q){
-      const hay = (o.org+' '+o.text+' '+o.goal+' '+o.area+' '+o.item).toLowerCase();
+      const hay = (o.org+' '+o.text+' '+o.goal+' '+o.area+' '+o.item+' '+o.kg.goal+' '+o.kg.fa+' '+(o.kg.pa?KG_BY_NUM[o.kg.pa].act:'')+' '+(o.kg.kid?KEY_BY_ID[o.kg.kid].text:'')).toLowerCase();
       if(!hay.includes(q)) return false;
     }
     return true;
@@ -534,6 +1067,8 @@ function renderOutcomes(){
         <span class="o-prog">${o.program} · ${o.timeframe}</span>
       </div>
       <div class="o-text">${o.text}</div>
+      <div class="o-plan">
+      <div class="o-plan-h">Complete Community Plan</div>
       <div class="o-tags">
         <span class="tag-lbl">Goal:</span>
         <span class="tag">${o.cat} → ${o.goal}</span>
@@ -545,11 +1080,14 @@ function renderOutcomes(){
         <span class="tag item">${o.item}${o.itemPriority ? ' ('+o.itemPriority+')' : ''}</span>
       </div>` : ''}
       <div class="o-rationale">Why: ${o.rationale}</div>
+      </div>
+      ${kgBlock(o)}
     </div>`).join('') || '<p style="padding:16px; font-size:13px; color:var(--text-dim);">No outcomes match your filters.</p>';
 }
 document.getElementById('oSearch').addEventListener('input', renderOutcomes);
 orgSel.addEventListener('change', renderOutcomes);
 oCatSel.addEventListener('change', renderOutcomes);
+oKgSel.addEventListener('change', renderOutcomes);
 renderOutcomes();
 </script>
 </body>
