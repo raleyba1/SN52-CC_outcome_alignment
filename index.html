@@ -268,6 +268,62 @@
   .moved-row .from{ color:var(--gold); font-weight:600; } .moved-row .to{ color:var(--plum); font-weight:600; }
   .mob-lbl{ display:none; }
   @media (max-width:820px){ .section.kg .goal-row, .section.kg .item-row{ grid-template-columns:20px 1fr; } .goal-row > div:nth-child(n+3), .item-row > div:nth-child(n+3){ grid-column:2; } .mob-lbl{ display:inline; color:var(--text-dim); font-size:12px; } .section.kg .tf{ display:inline; margin-left:6px; } .match-row, .match-empty{ padding-left:20px; } }
+
+  /* ---------- Overview + part views ---------- */
+  .view{ display:none; }
+  .view.active{ display:block; animation:fadeIn .25s ease; }
+  @keyframes fadeIn{ from{ opacity:0; transform:translateY(4px);} to{ opacity:1; transform:none; } }
+
+  .tabs{ display:flex; gap:2px; overflow-x:auto; }
+  .tabs a{ font-family:var(--font-mono); font-size:12px; letter-spacing:.03em; color:var(--text-dim); text-decoration:none;
+           padding:13px 14px 11px; white-space:nowrap; border-bottom:3px solid transparent; display:flex; align-items:center; gap:7px; }
+  .tabs a:hover{ color:var(--navy); }
+  .tabs a .sw{ width:8px; height:8px; border-radius:2px; display:inline-block; }
+  .tabs a.active{ color:var(--navy); font-weight:600; border-bottom-color:var(--navy); }
+  .tabs a[data-view="cc"].active{ border-bottom-color:var(--gold); }
+  .tabs a[data-view="kg"].active{ border-bottom-color:var(--plum); }
+
+  body.in-part .h-sub, body.in-part .h-groups{ display:none; }
+  body.in-part .header{ padding-top:20px; }
+  body.in-part .header-inner{ padding-bottom:16px; }
+  body.in-part .h-title{ font-size:clamp(18px,2.2vw,22px); margin:0; }
+
+  .intro-lead{ font-size:15px; line-height:1.65; }
+  .how-h{ font-weight:700; font-size:18px; color:var(--navy); margin:30px 0 4px; }
+  .how-note{ font-size:13.5px; color:var(--text-dim); margin:0 0 14px; }
+  .part-cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media (max-width:820px){ .part-cards{ grid-template-columns:1fr; } }
+  .part-card{ display:flex; flex-direction:column; text-decoration:none; color:var(--text); background:var(--paper);
+              border:1px solid var(--line); border-top:5px solid var(--navy); border-radius:var(--radius); padding:18px 20px 16px;
+              box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .15s ease; }
+  .part-card:hover{ transform:translateY(-2px); box-shadow:0 2px 4px rgba(29,51,69,.08), 0 6px 22px rgba(29,51,69,.10); }
+  .part-card.cc{ border-top-color:var(--gold); } .part-card.kg{ border-top-color:var(--plum); }
+  .part-card .p-tag{ color:var(--navy); } .part-card.cc .p-tag{ color:var(--gold); } .part-card.kg .p-tag{ color:var(--plum); }
+  .part-card .c-title{ font-weight:700; font-size:19px; color:var(--navy); margin:4px 0 6px; }
+  .part-card .c-desc{ font-size:13.5px; line-height:1.55; color:var(--text-dim); margin:0 0 14px; }
+  .c-stats{ display:flex; gap:22px; margin-bottom:14px; flex-wrap:wrap; }
+  .c-stat .n{ font-weight:700; font-size:24px; color:var(--navy); }
+  .part-card.cc .c-stat .n{ color:var(--gold); } .part-card.kg .c-stat .n{ color:var(--plum); }
+  .c-stat .l{ font-size:11.5px; color:var(--text-dim); max-width:170px; line-height:1.35; }
+  .c-inside{ font-size:12.5px; color:var(--text); border-top:1px solid var(--line); padding-top:10px; margin-top:auto; line-height:1.6; }
+  .c-inside .lbl{ font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); }
+  .c-open{ margin-top:12px; font-weight:600; font-size:13px; color:var(--navy); }
+  .part-card.cc .c-open{ color:var(--gold); } .part-card.kg .c-open{ color:var(--plum); }
+
+  .view > .part-banner:first-child, .view > .intro:first-child{ margin-top:28px; }
+  .p-links{ display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .p-links button{ font-family:var(--font-body); font-size:12px; padding:5px 11px; border-radius:14px; border:1px solid var(--line-strong);
+                   background:var(--paper); color:var(--text-dim); cursor:pointer; }
+  .p-links button:hover{ border-color:var(--navy); color:var(--navy); }
+  .part-banner.kg .p-links button:hover{ border-color:var(--plum); color:var(--plum); }
+  .part-banner:not(.kg):not(.both) .p-links button:hover{ border-color:var(--gold); color:var(--gold); }
+
+  .part-nav{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:40px; padding-top:18px; border-top:1px solid var(--line-strong); }
+  .part-nav a{ text-decoration:none; font-size:13.5px; color:var(--navy); font-weight:600; padding:9px 14px; border:1px solid var(--line-strong);
+               border-radius:var(--radius); background:var(--paper); }
+  .part-nav a:hover{ border-color:var(--navy); }
+  .part-nav a .s{ display:block; font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); font-weight:400; }
+  .part-nav .next{ text-align:right; margin-left:auto; }
 </style>
 </head>
 <body>
@@ -307,39 +363,85 @@
   </div>
 
   <div class="subnav">
-    <div class="subnav-inner">
-      <span class="nav-grp cc">CC Plan</span>
-      <a href="#glance">At a glance</a>
-      <a href="#category">Category coverage</a>
-      <a href="#goals">Goal &amp; action-item coverage</a>
-      <a href="#gaps">Gaps</a>
-      <span class="nav-grp kg">2026 Priorities</span>
-      <a href="#kg-glance">At a glance</a>
-      <a href="#kg-focus">Focus-area coverage</a>
-      <a href="#kg-actions">Priority-action &amp; key-action coverage</a>
-      <a href="#kg-gaps">Gaps</a>
-      <span class="nav-grp both">Both</span>
-      <a href="#compare">Compare plans</a>
-      <a href="#explorer">Browse outcomes</a>
+    <div class="subnav-inner tabs" id="tabs">
+      <a href="#overview" data-view="overview">Overview</a>
+      <a href="#cc-plan" data-view="cc"><span class="sw" style="background:var(--gold)"></span>A · Complete Community Plan</a>
+      <a href="#2026-priorities" data-view="kg"><span class="sw" style="background:var(--plum)"></span>B · 2026 Priorities</a>
+      <a href="#compare-plans" data-view="cmp">C · Compare the plans</a>
+      <a href="#browse" data-view="browse">D · Browse outcomes</a>
     </div>
   </div>
 
 <div class="sheet">
 
+  <div class="view" data-view="overview">
   <div class="intro">
-    Every grant outcome below has been matched against two resident-driven plans for Kashmere Gardens. Under the <b>Complete Community Action Plan</b>, each outcome is matched to the goal it most directly advances and to the one specific action item within that goal it most directly serves. Under the <b>2026 Kashmere Gardens Priorities</b>, each outcome is matched to the priority action it most directly advances and, where one fits, to the specific key action within it. So you can see which parts of each plan current grant funding is, and isn't, reaching.
-    <br><br>
-    Part A covers the Complete Community Action Plan, Part B covers the 2026 Priorities, and Part C compares the two. Colors are consistent throughout:
+    <div class="intro-lead">Every grant outcome in this dashboard has been matched against two resident-driven plans for Kashmere Gardens. Under the <b>Complete Community Action Plan</b>, each outcome is matched to the goal it most directly advances and to the one specific action item within that goal it most directly serves. Under the <b>2026 Kashmere Gardens Priorities</b>, each outcome is matched to the priority action it most directly advances and, where one fits, to the specific key action within it. So you can see which parts of each plan current grant funding is, and isn't, reaching.</div>
+    <br>
+    Counts use each outcome's <b>primary</b> match (the one plan item it most directly advances) unless a view says otherwise; many outcomes also have up to two <b>secondary</b> matches. Colors are consistent throughout:
     <div class="legend-chips">
       <span class="chip cc"><span class="sw"></span>Complete Community Action Plan</span>
       <span class="chip kg"><span class="sw"></span>2026 Kashmere Gardens Priorities</span>
     </div>
   </div>
 
+  <div class="how-h">Where would you like to start?</div>
+  <p class="how-note">The dashboard has four parts. Choose one to open it; you can switch parts at any time from the tabs at the top.</p>
+  <div class="part-cards">
+    <a class="part-card cc" href="#cc-plan">
+      <div class="p-tag">Part A</div>
+      <div class="c-title">Complete Community Action Plan</div>
+      <p class="c-desc">How the 200 grant outcomes line up with the plan's 10 categories, 32 goals and 82 specific action items, and which parts of the plan aren't being reached.</p>
+      <div class="c-stats">
+        <div class="c-stat"><div class="n" id="cs-cc1">–</div><div class="l">goals with no grant outcome</div></div>
+        <div class="c-stat"><div class="n" id="cs-cc2">–</div><div class="l">action items unaddressed within active goals</div></div>
+      </div>
+      <div class="c-inside"><span class="lbl">Inside:</span> At a glance · Category coverage · Goal &amp; action-item coverage · Gaps</div>
+      <div class="c-open">Open Part A →</div>
+    </a>
+    <a class="part-card kg" href="#2026-priorities">
+      <div class="p-tag">Part B</div>
+      <div class="c-title">2026 Kashmere Gardens Priorities</div>
+      <p class="c-desc">How the same outcomes line up with the 2026 plan's 6 focus areas, 32 priority actions and 90 key actions, and which priorities aren't being reached.</p>
+      <div class="c-stats">
+        <div class="c-stat"><div class="n" id="cs-kg1">–</div><div class="l">priority actions with no grant outcome</div></div>
+        <div class="c-stat"><div class="n" id="cs-kg2">–</div><div class="l">key actions unaddressed within active priority actions</div></div>
+      </div>
+      <div class="c-inside"><span class="lbl">Inside:</span> At a glance · Focus-area coverage · Priority-action &amp; key-action coverage · Gaps</div>
+      <div class="c-open">Open Part B →</div>
+    </a>
+    <a class="part-card" href="#compare-plans">
+      <div class="p-tag">Part C</div>
+      <div class="c-title">Compare the two plans</div>
+      <p class="c-desc">A side-by-side summary, a crosswalk showing where each outcome lands under each plan, the key structural differences, and outcomes matched under only one plan.</p>
+      <div class="c-stats">
+        <div class="c-stat"><div class="n" id="cs-c1">–</div><div class="l">outcomes with no Complete Community match</div></div>
+        <div class="c-stat"><div class="n" id="cs-c2">–</div><div class="l">outcomes with no 2026 match</div></div>
+      </div>
+      <div class="c-inside"><span class="lbl">Inside:</span> Summary table · Crosswalk · Key differences · Outcomes matched under only one plan</div>
+      <div class="c-open">Open Part C →</div>
+    </a>
+    <a class="part-card" href="#browse">
+      <div class="p-tag">Part D</div>
+      <div class="c-title">Browse individual grant outcomes</div>
+      <p class="c-desc">Search or filter every grant outcome by organization, category or focus area, and see exactly how it was matched under both plans, with the reasoning.</p>
+      <div class="c-stats">
+        <div class="c-stat"><div class="n">200</div><div class="l">grant outcomes</div></div>
+        <div class="c-stat"><div class="n">29</div><div class="l">grantees</div></div>
+      </div>
+      <div class="c-inside"><span class="lbl">Inside:</span> Search · Filter by organization, CC category or 2026 focus area</div>
+      <div class="c-open">Open Part D →</div>
+    </a>
+  </div>
+  </div>
+
+  <div class="view" data-view="cc">
+
   <div class="part-banner">
     <div class="p-tag">Part A</div>
     <div class="p-title">Complete Community Action Plan alignment</div>
     <p class="p-desc">10 categories, 32 goals and 82 specific action items. Each grant outcome is matched down to the action-item level.</p>
+    <div class="p-links"><button data-jump="glance">At a glance</button><button data-jump="category">Category coverage</button><button data-jump="goals">Goal &amp; action-item coverage</button><button data-jump="gaps">Gaps</button></div>
   </div>
 
   <!-- KPI STRIP -->
@@ -410,10 +512,15 @@
     </div>
   </div>
 
+  <div class="part-nav"><a href="#overview"><span class="s">Back to</span>Overview</a><a class="next" href="#2026-priorities"><span class="s">Next</span>B · 2026 Priorities →</a></div>
+  </div>
+
+  <div class="view" data-view="kg">
   <div class="part-banner kg">
     <div class="p-tag">Part B</div>
     <div class="p-title">2026 Kashmere Gardens Priorities alignment</div>
     <p class="p-desc">6 focus areas, 22 outcomes/goals, 32 priority actions (each with its own High / Medium / Low priority) and 90 key actions. Each grant outcome is matched to a priority action and, where one fits, to a specific key action.</p>
+    <div class="p-links"><button data-jump="kg-glance">At a glance</button><button data-jump="kg-focus">Focus-area coverage</button><button data-jump="kg-actions">Priority-action &amp; key-action coverage</button><button data-jump="kg-gaps">Gaps</button></div>
   </div>
 
   <!-- 2026 KPI STRIP -->
@@ -481,10 +588,15 @@
     </div>
   </div>
 
+  <div class="part-nav"><a href="#cc-plan"><span class="s">Previous</span>← A · Complete Community Plan</a><a class="next" href="#compare-plans"><span class="s">Next</span>C · Compare the plans →</a></div>
+  </div>
+
+  <div class="view" data-view="cmp">
   <div class="part-banner both">
     <div class="p-tag">Part C</div>
     <div class="p-title">How the two alignments compare</div>
     <p class="p-desc">The same 200 grant outcomes read against both plans: where they line up the same way, and where the two plans differ.</p>
+    <div class="p-links"><button data-jump="compare">Summary table</button><button data-jump="cmp-xwalk">Crosswalk</button><button data-jump="cmp-diff">Key differences</button><button data-jump="cmp-moved">Matched under only one plan</button></div>
   </div>
 
   <!-- COMPARISON -->
@@ -495,23 +607,32 @@
       <table class="cmp-table" id="cmpTable"></table>
       <div class="cmp-foot">The two plans are organized differently. The Complete Community Plan nests 82 action items under its goals. The 2026 plan adds a priority-action layer between its goals and its 90 key actions. Outcomes that advance a 2026 priority action broadly, without fitting one key action, count toward the priority action but not toward any key action.</div>
 
-      <div class="sub-h">Crosswalk: where each outcome's primary match lands</div>
+      <div class="sub-h" id="cmp-xwalk">Crosswalk: where each outcome's primary match lands</div>
       <p class="sub-note">Each cell counts grant outcomes whose primary Complete Community category is the row and whose primary 2026 focus area is the column. Darker cells hold more outcomes. Hover a cell for the count.</p>
       <div class="xwalk-wrap"><table class="xwalk" id="xwalk"></table></div>
 
-      <div class="sub-h">Key differences</div>
+      <div class="sub-h" id="cmp-diff">Key differences</div>
       <p class="sub-note">The structural differences between the two plans that most affect how grant outcomes line up.</p>
       <div class="diff-grid" id="diffGrid"></div>
 
-      <div class="sub-h">Outcomes matched under only one plan</div>
+      <div class="sub-h" id="cmp-moved">Outcomes matched under only one plan</div>
       <p class="sub-note" id="movedNote"></p>
       <div class="moved-list" id="movedList"></div>
     </div>
   </div>
 
+  <div class="part-nav"><a href="#2026-priorities"><span class="s">Previous</span>← B · 2026 Priorities</a><a class="next" href="#browse"><span class="s">Next</span>D · Browse outcomes →</a></div>
+  </div>
+
+  <div class="view" data-view="browse">
+  <div class="part-banner both">
+    <div class="p-tag">Part D</div>
+    <div class="p-title">Browse individual grant outcomes</div>
+    <p class="p-desc">Every grant outcome, with its Complete Community match and its 2026 match side by side.</p>
+  </div>
   <!-- OUTCOME EXPLORER -->
   <div class="section" id="explorer">
-    <div class="section-head"><span class="section-num">10</span><h2 class="section-title">Browse individual grant outcomes</h2></div>
+    <div class="section-head"><span class="section-num">10</span><h2 class="section-title">Search and filter</h2></div>
     <p class="section-note">Search or filter all 200 grant outcomes and see exactly which Complete Community goal and specific action item each one was matched to, and which 2026 priority action and key action it was matched to, with the reasoning behind each match.</p>
     <div class="panel">
       <div class="outcome-controls">
@@ -523,6 +644,9 @@
       <div class="count-note" id="oCount"></div>
       <div class="outcome-list" id="outcomeList"></div>
     </div>
+  </div>
+
+  <div class="part-nav"><a href="#compare-plans"><span class="s">Previous</span>← C · Compare the plans</a><a class="next" href="#overview"><span class="s">Back to</span>Overview</a></div>
   </div>
 
   <div class="footer-note">SN52 Grant Analysis · Complete Community Plan and 2026 Kashmere Gardens Priorities alignment</div>
@@ -1089,6 +1213,30 @@ orgSel.addEventListener('change', renderOutcomes);
 oCatSel.addEventListener('change', renderOutcomes);
 oKgSel.addEventListener('change', renderOutcomes);
 renderOutcomes();
+
+// ---------- Overview cards & view switching ----------
+document.getElementById('cs-cc1').textContent = goalGaps;
+document.getElementById('cs-cc2').textContent = itemGaps;
+document.getElementById('cs-kg1').textContent = kgGaps.length;
+document.getElementById('cs-kg2').textContent = kgKeyGaps.length;
+document.getElementById('cs-c1').textContent = outcomes.filter(o=>o.cat===UNCAT).length;
+document.getElementById('cs-c2').textContent = kgUncat;
+
+const ROUTES = {'overview':'overview','cc-plan':'cc','2026-priorities':'kg','compare-plans':'cmp','browse':'browse'};
+function showView(){
+  const key = location.hash.replace('#','');
+  const view = ROUTES[key] || 'overview';
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.dataset.view===view));
+  document.querySelectorAll('#tabs a').forEach(a=>a.classList.toggle('active', a.dataset.view===view));
+  document.body.classList.toggle('in-part', view!=='overview');
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', showView);
+showView();
+document.querySelectorAll('.p-links button').forEach(b=>b.addEventListener('click',()=>{
+  const el = document.getElementById(b.dataset.jump);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}));
 </script>
 </body>
 </html>
